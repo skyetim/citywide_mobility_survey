@@ -133,7 +133,7 @@ ggplot(survey_1, aes(x = Prop, y = reorder(Description, Prop), color = rev(facto
   scale_color_manual(values = c("gray40", "sienna3"))+
   theme_economist() +
   theme(axis.text.x = element_text(size = 8, angle = 0), 
-        plot.title = element_text(size = 12), 
+        plot.title = element_text(size = 14), 
         legend.position = "right", 
         legend.title = element_blank(),
         legend.text = element_text(size = 9))
@@ -555,7 +555,8 @@ ggplot(df_rent %>%
   labs(x = "Residence Type", y = "Frequency", 
        caption = "Source: https://data.cityofnewyork.us/Transportation/Citywide-Mobility-Survey-Main-Survey/dd6w-hnq9") +
   theme_economist() +
-  theme(axis.text.x = element_text(size = 8))
+  theme(axis.text.x = element_text(size = 8),
+        plot.title = element_text(size = 14))
 ```
 
 For residence types, we divide all respondents into two groups, those who own their house and those who don't. About 2200 respondents in the sample rent their house taking up about 60% of all, and 1365 respondents own their house. From the stacked bar chart, it's clear that tenants take up the least proportion in the group of traveling by car. Compared to driving their own vehicles, they tend to choose public transportation systems such as bus and subway.
