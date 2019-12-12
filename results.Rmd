@@ -86,7 +86,7 @@ ggplot(df1, aes(reorder(Mode, -Order), Sum, fill = Gender)) +
 
 Visualize respondents' positive descriptions of bicycling via Cleveland dot plot faceted by gender. Here, "positive" means they think bicycling has such advantage. We separate respondents into two groups, preferring bicycling and not preferring bicycling. 
 
-For females, both prefer and not prefer bicycling, the majority of them think bicycling is inexpensive or / and convenient, although the differences between the proportions of the supporters are a little large. The proportion of females that think riding a bicycle is safe enough is the least, expecially for those prefering bicycling. This indicates that the females choosing bicycle as the mode to get around city might value low cost and high level of convenience most when comparing safety with these two advantages. This is the same for males. Now consider the result showing in figure "Gender Composition" that almost 70% people who prefer bicycling are males. We can conclude that more males would pay more attention to the advantages of bicycle (e.g. inexpensiveness, convenience, etc.) than females. In other words, more females may be concerned about safety most, which is consistent with our guess.
+For females, both prefer and not prefer bicycling, the majority of them think bicycling is inexpensive and convenient, although the differences between the proportions of the supporters are large. The proportion of females that think riding a bicycle is safe enough is the least, expecially for those preferring bicycling. This indicates that the females choosing bicycle as the mode to get around city might value low cost and high level of convenience most when comparing safety with these two advantages. This is the same for males. Now consider the result showing in figure "Gender Composition" that almost 70% people who prefer bicycling are males. We can conclude that more males would pay more attention to the advantages of bicycle (e.g. inexpensiveness, convenience, etc.) than females. In other words, more females may be concerned about safety most, which is consistent with our guess.
 
 ```{r}
 survey <- read.csv("data/raw_survey_data.csv")
@@ -192,7 +192,7 @@ HH::likert(Gender ~ .,
 
 
 
-## Differences between income composition of the residents choosing different transportation modes
+## How does income affect residents' choices of transportation? 
 
 We are also interested in the possible relationship between resident's income and their choices. First we plot a bar chart in terms of income to quickly learn about the proportion of respondents with different income. According to our interest, we recombine the income into 4 categories, which are "\$100,000 and above", "\$25,000 - \$99,999", "Less than \$24,999" and "Other". "Other" refers to the answers of "Don't know" and "Refused".
 
@@ -417,7 +417,7 @@ age %>%
         legend.key.size = unit(0.6, "cm"))
 ```
 
-The result is consistent with what we thought. Middle-aged residents take a relative huge proportion in people who choose bicycle, while more old residents prefer taking car to get around the city due to healthy or some other issue. 
+The result is consistent with what we thought. Middle-aged residents take a relative huge proportion in people who choose bicycle, while more old residents prefer taking car to get around the city due to health or some other issues. 
 
 ```{r}
 age_1 <- merge(age, travel_mode) %>%
