@@ -86,7 +86,7 @@ ggplot(df1, aes(reorder(Mode, -Order), Sum, fill = Gender)) +
 
 Visualize respondents' positive descriptions of bicycling via Cleveland dot plot faceted by gender. Here, "positive" means they think bicycling has such advantage. We separate respondents into two groups, preferring bicycling and not preferring bicycling. 
 
-The majority of respondents (above 70%), who hold the opinion that bicycling is inexpensive or / and convenient, are those prefer riding a bicycle to get around the city, both females and males. Also, besides these two features, they also think highly of other aspects of bicycle, including safety, speed, etc. On the contrary, for those not prefering bicycling, only a small proportion of them think bicycling has such characteristic, when they were asked. However, figure "Gender Composition" shows that a large percent of males choose bicycle as the mode they would choose to get around the city, and also a large proportion of females would not like to ride a bicycle. The possible interpretation is that what males are concerned about most is different from that of females. Comparing safety with cost as well as comfort level, males value the latter more, and females may be concerned about safety most, which is consistent with our guess.
+For females, both prefer and not prefer bicycling, the majority of them think bicycling is inexpensive or / and convenient, although the differences between the proportions of the supporters are a little large. The proportion of females that think riding a bicycle is safe enough is the least, expecially for those prefering bicycling. This indicates that the females choosing bicycle as the mode to get around city might value low cost and high level of convenience most when comparing safety with these two advantages. This is the same for males. Now consider the result showing in figure "Gender Composition" that almost 70% people who prefer bicycling are males. We can conclude that more males would pay more attention to the advantages of bicycle (e.g. inexpensiveness, convenience, etc.) than females. In other words, more females may be concerned about safety most, which is consistent with our guess.
 
 ```{r}
 survey <- read.csv("data/raw_survey_data.csv")
@@ -117,12 +117,12 @@ survey_1 <- merge(travel_mode, Survey, by = "UniqueID", all.y = TRUE) %>%
   group_by(Gender, Description, Preference) %>%
   summarise(Num = sum(allwt)) %>%
   ungroup() %>%
-  group_by(Gender, Description) %>%
-  mutate(Prop = Num / sum(Num), Order = first(Prop)) %>%
+  group_by(Gender, Preference) %>%
+  mutate(Prop = Num / sum(Num)) %>%
   ungroup() 
 
 # Description of Bicycling from Residents Who Do Not Prefer Bicycling
-ggplot(survey_1, aes(x = Prop, y = reorder(Description, Order), color = rev(factor(Preference)))) +
+ggplot(survey_1, aes(x = Prop, y = reorder(Description, Prop), color = rev(factor(Preference)))) +
   geom_point(size = 1.8) +
   facet_grid(Gender~.) +
   scale_x_continuous(labels = scales::percent) +
@@ -134,7 +134,7 @@ ggplot(survey_1, aes(x = Prop, y = reorder(Description, Order), color = rev(fact
   theme_economist() +
   theme(axis.text.x = element_text(size = 8, angle = 0), 
         plot.title = element_text(size = 12), 
-        legend.position = "bottom", 
+        legend.position = "right", 
         legend.title = element_blank(),
         legend.text = element_text(size = 9))
 ```
@@ -208,8 +208,8 @@ traveler_income$qincome[traveler_income$qincome %in% c(10, 11)] <- "Other"
 traveler_income['qincome'] <- 
   factor(traveler_income$qincome,
          levels = c("Less than $24,999", 
+                    "$25,000 - $99,999",
                     "$100,000 and above", 
-                    "$25,000 - $99,999", 
                     "Other"))
 
 traveler_income %>%
