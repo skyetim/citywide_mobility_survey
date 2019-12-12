@@ -541,7 +541,7 @@ for (element in df_travel[['travel_code']])
   }
 ```
 
-Apart from basic socioeconomic factors, the situation of living and dwelling should also affect their preferences for traveling and types of transportation. We select variables concerning whether the respondent own their house or not, the cumulative years of living in New York City and the number of children as index of their general living condition and explore whether owning house, raising children and living longer years in NYC will have an impact on their choices.
+Apart from basic socioeconomic factors, the situation of living and dwelling should also affect their preferences for traveling and types of transportation. We select variables concerning whether the respondents own their houses or not, the cumulative years of living in New York City and the number of children as index of their general living conditions and explore whether owning house, rasing children and living longer years in NYC will have an impact on their choices.
 
 ```{r}
 # use mode to fill.na
@@ -579,7 +579,7 @@ ggplot(df_rent %>%
   theme(axis.text.x = element_text(size = 8))
 ```
 
-For residence types, we divide all respondents into two groups, those who own their house and those who don't. About 2200 respondents in the sample rent their house taking up about 60% of all, and 1365 respondents own their house. From the stacked bar chart, it's clear that tenants take up the least proportion in the group of traveling by car. Compared to driving their own vehicles, they tend to choose public transportation system such as bus and subway.
+For residence types, we divide all respondents into two groups, those who own their house and those who don't. About 2200 respondents in the sample rent their house taking up about 60% of all, and 1365 respondents own their house. From the stacked bar chart, it's clear that tenants take up the least proportion in the group of traveling by car. Compared to driving their own vehicles, they tend to choose public transportation systems such as bus and subway.
 
 ```{r}
 df_walk <- df_rent %>% 
@@ -780,7 +780,7 @@ ggplot(df_transportation, aes(x = reorder(Transportation, -ord), y = prop, fill 
         legend.key.size = unit(0.6, "cm"))
 ```
 
-We expect children to be a distinguishing feature as raising child would definitely change almost every aspects of an adult's life with traveling included. In all ways of transportation, people with two or more children take up highest proportion in the car category. It's reasonable because one can imagine the trouble of taking subway with two kids but it's also possible that the result coming from the reciprocal effects of other variables. For example, those who live longer and own their house are also likely to buy a car and having more children in New York City. Young people will have significant disadvantages in terms of their wealth accumulation and years of living in the city. Further understanding of the phenomenon requires a deeper analysis to control the effect of other variables. 
+We expect children to be a distinguishing feature as rasing child would definitely change almost every aspect of an adult's life with traveling included. In all ways of transportation, people with two or more children take up highest proportion in the car category. It's reasonble because one can imagine the trouble of taking subway with two kids but it's also possible that the result comes from the reciporical effects of other variables. For example, those who live longer and own their house are also likely to buy a car and have more children in New York City. Young people will have significant disadvantages in terms of their wealth accumulation and years of living in the city. Further understanding of the phenomenon requires a deeper analysis to control the effect of other variables. 
 
 ```{r}
 df_children <- merge(df_travel, select(df_general, c(UniqueID, qchildren)), by = "UniqueID")
@@ -1023,7 +1023,7 @@ ggplot(df_transportation, aes(x = reorder(Transportation, -ord),
         legend.key.size = unit(0.6, "cm"))
 ```
 
-Now we can observed the association more clearly. People with a higher tendency to use for-hired vehicle are also willing to choose takeout delivery service. That's probably a reason why Uber also develop Uber Eats as the customers are somehow overlapped.
+Now we can observed the association more clearly. People with a higher tendency to use for-hired vehicles are also willing to choose takeout dilivery service. That's probably a reason why Uber also develops Uber Eats as the customers are somehow overlapped.
 
 ```{r}
 df_lazy <- select(df_general, c(UniqueID, gFREIGHT1_qFREIGHT2_mA,
@@ -1068,13 +1068,13 @@ ggplot(data = df_lazy) +
 
 ## How do Locations Affect Choices of Transportation?
 
-Transportation is naturally a topic highly related to space and geography elements. In this part, we extract the transportation of highest proportion in people's choices for each Zipcode and derive the "favorite transportation by Zipcode" variable. 
+Transportation is naturally a topic highly related to space and geography elements. In this part, we extract the transportation of highest proportion in people's choices for each Zipcode and derive the "Favourite Transportation by Zipcode" variable. 
 
-From the choropleth, we can see that a majority of blocks in New York City choose Subway as their favorite way of transportation, which include most areas of Queens and Brooklyn, Manhattan Uptown and the South Bronx. From the New York City subway system map we can see these are also the areas where subway lines are constructed in high density. 
+From the choropleth, we can see that a majority of blocks in New York City choose Subway as their favourite way of transportation, which include most areas of Queens and Brooklyn, Manhattan Uptown and the South Bronx. From the New York City subway system map we can see these are also the areas where subway lines are constructed in high density. 
 
-As there are not so many subway lines in Staten Island, people use car as a major way of traveling, which is also the case for some areas in Bronx and Long Island as they are far from the center of NYC, so car is needed for commute and mobility.
+As there are not so many subway lines in Staten Island, people use car as a major way of traveling, which is also the case for some areas in Bronx and Long Island. As they locate far from the center of NYC, car is needed for commute and mobility.
 
-Interestingly, people living in downtown of Manhattan and some parts of Brooklyn choose walking as their favorite way of transportation. It may be related to the density of commercial activities so that people do not have to travel long distance to meet their daily needs. As they live in the center of the city, it's unnecessary to take subway or drive a car to their workplaces.
+An interesting observation is that people living in downtown of Manhattan and some parts of Brooklyn choose walking as their favourite way of transportation. It may be realted to the density of commerial activities and infrastructure so that people do not have to travel long distance to meet their daily needs. As they live in the center of the city, it's unnecessary to take subway or drive a car to their workplaces.
 
 ```{r}
 df_borough <- select(df_general, c(UniqueID, borough, allwt))
@@ -1169,9 +1169,9 @@ zip_choropleth(plot_fav, county_zoom = nyc_fips,
   scale_fill_manual(values = c("#4a4a4a", "#8abbd0", "purple", "#efe8d1", "#00008b"))
 ```
 
-As a result of difference in infrastructure construction and urban area function, people in different boroughs and locations of the city form different preference for transportation.
+As a result of difference in infrastructure construction and urban area function, people in different boroughs and locations of the city form different preferences for transportations.
 
-From a environmental perspective, we draw the choropleth for the proportion of people choosing a low-carbon way of traveling. In our definition, those who take subway and other public transportation service as well as people who choose walking and riding bicycle will all be considered as the environment-friendly group in term of traveling.
+From an environmental perspective, we draw the choropleth for the proportions of people choosing a low-carbon way of traveling in each Zipcode area. In our definition, those who take subway and other public transportation service as well as people who choose walking and riding bicycle will all be considered as the environment-friendly group in term of traveling.
 
 The result is consistent with what we find in the last graph. People living in Manhattan and parts of Brooklyn have the highest proportion in environmental friendliness, as a result of their preferences for subway. Staten Island gets a relatively low score since there are few subway lines so car becomes the first choice of traveling.
 
