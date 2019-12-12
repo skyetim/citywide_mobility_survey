@@ -84,7 +84,9 @@ ggplot(df1, aes(reorder(Mode, -Order), Sum, fill = Gender)) +
         legend.key.size = unit(0.6, "cm"))
 ```
 
-Visualize respondents' description of bicycling via Cleveland dot plot faceted by gender. We separate respondents into two groups, preferring bicycling and not preferring bicycling. For those would like to ride a bicycle to get around the city, both females and males, the majority of them think bicycling is not only inexpensive but also convenient. However, for those not preferring bicycling, the main reason for they rejecting to ride a bicycling to get around the city is that they think it's not safe enough in New York City. By further exploring, we notice that the order of the reasons for preferring or not preferring riding a bicycle are the same for male and female residents, but the gender composition in Bicycling shows that more males than females chose this mode. The possible interpretation is that what males are concerned about most is different from that of females. Comparing safety with cost as well as comfort level, males value the latter more. On the contrary, females may be concerned about safety most, which is consistent with our guess.
+Visualize respondents' positive descriptions of bicycling via Cleveland dot plot faceted by gender. Here, "positive" means they think bicycling has such advantage. We separate respondents into two groups, preferring bicycling and not preferring bicycling. 
+
+The majority of respondents (above 70%), who hold the opinion that bicycling is inexpensive or / and convenient, are those prefer riding a bicycle to get around the city, both females and males. Also, besides these two features, they also think highly of other aspects of bicycle, including safety, speed, etc. On the contrary, for those not prefering bicycling, only a small proportion of them think bicycling has such characteristic, when they were asked. However, figure "Gender Composition" shows that a large percent of males choose bicycle as the mode they would choose to get around the city, and also a large proportion of females would not like to ride a bicycle. The possible interpretation is that what males are concerned about most is different from that of females. Comparing safety with cost as well as comfort level, males value the latter more, and females may be concerned about safety most, which is consistent with our guess.
 
 ```{r}
 survey <- read.csv("data/raw_survey_data.csv")
@@ -105,60 +107,33 @@ Survey$Gender[Survey$Gender == '1'] <- "Male"
 Survey$Gender[Survey$Gender == '2'] <- "Female"
 
 survey_1 <- merge(travel_mode, Survey, by = "UniqueID", all.y = TRUE) %>%
-  filter(Bicycle == 0) %>%  # Only forcus on those did not choose bicycle
-  subset(select = c(1, 10:19)) %>%
-  gather(key = "Description", value = "Choice", -c(1:2, 11)) %>%
-  group_by(Description, Gender, Choice) %>%
+  mutate(Preference = ifelse(Bicycle == 1, "Prefer", "Not Prefer")) %>%
+  subset(select = c(1, 10:20)) %>%
+  gather(key = "Description", value = "Choice", -c(1:2, 11, 12)) %>%
+  filter((Choice == 1) & (Description %in% c("Convenient", "Reliable", 
+                                           "Fast", "Inexpensive", 
+                                           "Safe", "Comfortable"))) %>%
+  subset(select = c(1:5)) %>%
+  group_by(Gender, Description, Preference) %>%
   summarise(Num = sum(allwt)) %>%
   ungroup() %>%
-  group_by(Description, Gender) %>%
+  group_by(Gender, Description) %>%
   mutate(Prop = Num / sum(Num), Order = first(Prop)) %>%
-  ungroup()
-  
+  ungroup() 
+
 # Description of Bicycling from Residents Who Do Not Prefer Bicycling
-ggplot(survey_1, aes(x = Prop, y = reorder(Description, -Order), color = factor(Choice))) +
+ggplot(survey_1, aes(x = Prop, y = reorder(Description, Order), color = rev(factor(Preference)))) +
   geom_point(size = 1.8) +
   facet_grid(Gender~.) +
   scale_x_continuous(labels = scales::percent) +
   labs(x = "Proportion", y = "Description", 
-       title = "Description of Bicycling from Residents Who Do Not Prefer Bicycling",
+       title = "Description of Bicycling",
+       subtitle = "Focus on answer \"YES\" , the proportion of residents who do or do not prefer bicycling",
        caption = "Source: https://data.cityofnewyork.us/Transportation/Citywide-Mobility-Survey-Main-Survey/dd6w-hnq9") + 
-  scale_color_manual(labels = c("No", "Yes"), 
-                     values = c("gray40", "sienna3"))+
+  scale_color_manual(values = c("gray40", "sienna3"))+
   theme_economist() +
   theme(axis.text.x = element_text(size = 8, angle = 0), 
         plot.title = element_text(size = 12), 
-        legend.position = "bottom", 
-        legend.title = element_blank(),
-        legend.text = element_text(size = 9))
-```
-
-```{r}
-survey_2 <- merge(travel_mode, Survey, by = "UniqueID", all.y = TRUE) %>%
-  filter(Bicycle == 1) %>%  # Only forcus on those did not choose bicycle
-  subset(select = c(1, 10:19)) %>%
-  gather(key = "Description", value = "Choice", -c(1:2, 11)) %>%
-  group_by(Description, Gender, Choice) %>%
-  summarise(Num = sum(allwt)) %>%
-  ungroup() %>%
-  group_by(Description, Gender) %>%
-  mutate(Prop = Num / sum(Num), Order = first(Prop)) %>%
-  ungroup()
-
-# Description of Bicycling from Residents Who Prefer Bicycling
-ggplot(survey_2, aes(x = Prop, y = reorder(Description, -Order), 
-                     color = factor(Choice))) +
-  geom_point(size = 1.8) +
-  facet_grid(Gender~.) +
-  scale_x_continuous(labels = scales::percent) +
-  labs(x = "Proportion", y = "Description", 
-       title = "Description of Bicycling from Residents Who Prefer Bicycling",
-       caption = "Source: https://data.cityofnewyork.us/Transportation/Citywide-Mobility-Survey-Main-Survey/dd6w-hnq9") + 
-  scale_color_manual(labels = c("No", "Yes"), 
-                     values = c("gray40", "sienna3"))+
-  theme_economist() +
-  theme(axis.text.x = element_text(size = 8, angle = 0), 
-        plot.title = element_text(size = 13), 
         legend.position = "bottom", 
         legend.title = element_blank(),
         legend.text = element_text(size = 9))
@@ -210,14 +185,18 @@ HH::likert(Gender ~ .,
            main = 'How Important Is It to You That Making It Safer and \n Easier to Bike by Adding Bike Lanes',
            scales = list(cex = 1),
            auto.key.in = list(cex = 0.8),
-           horizontal = FALSE) 
+           horizontal = FALSE,
+           col = c("steelblue3", "steelblue2", "bisque", "orange", "orange3", "orange4"),
+           alpha = 0.2) 
 ```
 
 
 
 ## Differences between income composition of the residents choosing different transportation modes
 
-We are also interested in the possible relationship between resident's income and their mode choices. First we plot a bar chart in terms of income to quick learn about the proportion of respondents with different income. According to our interest, we recombine the income into 4 categories, which are "\$100,000 and above", "\$25,000 - \$99,999", "Less than \$24,999" and "Other". Almost half of the respondents have a year's income between $25,000 and \$99,999 and the proportions of residents with less than \$24,999 income and those with more than \$100,000 income are roughly equal.
+We are also interested in the possible relationship between resident's income and their mode choices. First we plot a bar chart in terms of income to quick learn about the proportion of respondents with different income. According to our interest, we recombine the income into 4 categories, which are "\$100,000 and above", "\$25,000 - \$99,999", "Less than \$24,999" and "Other". "Other" refers to the answers like "Don't know" and "Refused".
+
+Almost half of the respondents have a year's income between $25,000 and \$99,999 and the proportions of residents with less than \$24,999 income and those with more than \$100,000 income are roughly equal.
 
 ```{r}
 traveler_income <- df_general[c(1, 6, 31)]
@@ -228,9 +207,9 @@ traveler_income$qincome[traveler_income$qincome %in% c(10, 11)] <- "Other"
 
 traveler_income['qincome'] <- 
   factor(traveler_income$qincome,
-         levels = c("$100,000 and above", 
+         levels = c("Less than $24,999", 
+                    "$100,000 and above", 
                     "$25,000 - $99,999", 
-                    "Less than $24,999", 
                     "Other"))
 
 traveler_income %>%
