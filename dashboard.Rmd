@@ -5,4 +5,9 @@ When we were conducting the initial exploratory analysis, we were overwhelmed by
 1. **Exploration and Analysis:** Using this interactive dashboard speeds up our exploratory process of finding the trend and interactions between dimensions.
 2. **Reading and understanding:** Directly clicking on the graphs allows our readers to understand our analysis more intuitively and also makes the reading process more fun. They can also decide whether this survey reflects their transportation preferences by simply clicking on the choices.
 
+Here, we give some examples how you can use our interactive dashboard: 
+
+1. **Confirm our results:** In our analysis, we claim that owning a house in NYC would greatly affect the choices of transportation. You can confirm this result by clicking `Fix preference bar chart at top`, scrolling down to `Rent (Yes) or Own (No) home?` pie chart (we use pie charts because it's easy to interact with, and we label numbers on them so that there will be no misperception. ) and clicking No. You will see that preference for cars takes up the first position. Also, you can observe other variables at the same time. You will see that these people have a higher income, mostly married, and highly educated. 
+2. **See if your demographic shares the same preference as you:** Treat this as a survey. Select the variables as you fit in, and see if your choices of transportation are common in your demographic. We have tried, and this survey really reflects our preferences! 
+
 [Click here](dashboard/index.html) to start exploring our citywide mobility survey! 
