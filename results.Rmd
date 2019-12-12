@@ -16,7 +16,7 @@ weight1 <- read.csv("data/weight_fill.csv")
 ```
 
 
-## Differences between gender composition of the residents choosing different transportation modes
+## How does gender affect residents' choices of transportation? 
 
 Calculate the proportion of the respondents with different gender. There are totally 41.12% males and 58.77% females among all the respondents.
 
@@ -44,9 +44,9 @@ traveler_gender %>%
 
 After removing the records which are "Don't know" or "Refused" in Gender, we plot a stacked bar chart and use the proportion of each gender we calculated above as the basis for comparison. Note that if there's no difference between the gender composition of each transportation mode, then the line separates male and female should be on the same level. 
 
-We can easily notice that the gender composition among different modes are different, especially between bicycle and the other modes. Almost 70% residents that prefer riding a bicycle to get around the city are males, greatly beyond the number of females. On the contrary, relative less males than females would like to choose bus, for-hire vehicle and walk, which is not due to the unbalanced sampling proportion of different gender.
+We can easily notice that the gender composition among different modes are different, especially bicycle. Almost 70% residents that prefer riding a bicycle to get around the city are males. On the contrary, relative less males than females would like to choose bus, for-hire vehicle and walk, which is not due to the unbalanced sampling proportion of different gender.
 
-In order to interpret the huge difference between the number of males and females preferring bicycle, we propose several possible reasons firstly. It may be because females do not think riding bicycle is safe enough in New York City due to the high crime rate, or males want to make use of their spare time to take exercise, for which riding bicycle is a good idea. We can further verify our guesses by exploring the question in the questionnaire, "Which of the following words most apply to Bicycling?".   
+In order to interpret the huge difference between the number of males and females preferring bicycle, we propose several possible reasons firstly. It may be because females do not think riding bicycle is safe enough in New York City due to bad road conditions, or males want to make use of their spare time to take exercise, for which riding bicycle is a good idea. We can further verify our guesses by exploring the question in the questionnaire, "Which of the following words most apply to Bicycling?".   
 
 ```{r, echo=FALSE}
 # Transportation mode ~ Gender
@@ -127,8 +127,8 @@ ggplot(survey_1, aes(x = Prop, y = reorder(Description, Order), color = rev(fact
   facet_grid(Gender~.) +
   scale_x_continuous(labels = scales::percent) +
   labs(x = "Proportion", y = "Description", 
-       title = "Description of Bicycling",
-       subtitle = "Focus on answer \"YES\" , the proportion of residents who do or do not prefer bicycling",
+       title = "Perception of Bicycling",
+       subtitle = "Faceted by residents who do or do not prefer bicycling",
        caption = "Source: https://data.cityofnewyork.us/Transportation/Citywide-Mobility-Survey-Main-Survey/dd6w-hnq9") + 
   scale_color_manual(values = c("gray40", "sienna3"))+
   theme_economist() +
@@ -139,7 +139,7 @@ ggplot(survey_1, aes(x = Prop, y = reorder(Description, Order), color = rev(fact
         legend.text = element_text(size = 9))
 ```
 
-There's a question in the questionnaire which is "How important is it to you that making it safer and easier to bike by adding bike lanes". This helps us decide one aspect which people think causes the danger of riding bicycle in New York City. We plot it into a diverted bar chart. It shows that both males and females think adding bike lanes are really important, although with different degree. This indicates that the current number of bike lanes in NYC are still not enough and car accident may negatively influence the proportion of residents who would like to ride a bicycle to get around the city.
+There's another question in the questionnaire which is "How important is it to you that making it safer and easier to bike by adding bike lanes". This helps us decide one aspect which people think causes the danger of riding bicycle in New York City. We plot it into a diverted bar chart. It shows that both males and females think adding bike lanes are really important, although to different degree. This indicates that the current number of bike lanes in NYC are still not enough and car accident may negatively influence the proportion of residents who would like to ride a bicycle to get around the city.
 
 ```{r}
 important <- df_general[c(1, 2, 22, 31)] 
@@ -194,9 +194,9 @@ HH::likert(Gender ~ .,
 
 ## Differences between income composition of the residents choosing different transportation modes
 
-We are also interested in the possible relationship between resident's income and their mode choices. First we plot a bar chart in terms of income to quick learn about the proportion of respondents with different income. According to our interest, we recombine the income into 4 categories, which are "\$100,000 and above", "\$25,000 - \$99,999", "Less than \$24,999" and "Other". "Other" refers to the answers like "Don't know" and "Refused".
+We are also interested in the possible relationship between resident's income and their choices. First we plot a bar chart in terms of income to quickly learn about the proportion of respondents with different income. According to our interest, we recombine the income into 4 categories, which are "\$100,000 and above", "\$25,000 - \$99,999", "Less than \$24,999" and "Other". "Other" refers to the answers of "Don't know" and "Refused".
 
-Almost half of the respondents have a year's income between $25,000 and \$99,999 and the proportions of residents with less than \$24,999 income and those with more than \$100,000 income are roughly equal.
+Almost half of the respondents have a year's income between \$25,000 and \$99,999 and the proportions of residents with less than \$24,999 income and those with more than \$100,000 income are roughly equal.
 
 ```{r}
 traveler_income <- df_general[c(1, 6, 31)]
@@ -227,7 +227,7 @@ traveler_income %>%
   theme(axis.text.x = element_text(size = 8, angle = 0))
 ```
 
-Then we plot a stacked bar chart to compare the income composition between different modes. The most obvious differences include 1) the residents whose income higher than \$100,000 prefer bicycling and car more than other transportation modes and the proportions of these two choices are roughly equal, 2) compared with other modes, the residents choosing walking and taking bus or subway are composed by more people with lower than \$24,999 income. Also, the respondents whose income are between \$25,000 and \$99,999 take a large proportion in those loving train and rail. 
+Then we plot a stacked bar chart to compare the income composition between different transportation. The most obvious differences include 1) the residents whose income higher than \$100,000 prefer bicycling and car more than other transportation modes and the proportions of these two choices are roughly equal, 2) compared with other transportation, the residents choosing walking and taking bus or subway are composed by more people with lower than \$24,999 income. Also, the respondents whose income are between \$25,000 and \$99,999 take a large proportion in those who prefer train and rail. 
 
 ```{r}
 # Transportation mode ~ Income
@@ -270,7 +270,7 @@ ggplot(income, aes(reorder(Mode, -Order), Sum, fill = qincome)) +
         legend.key.size = unit(0.6, "cm"))
 ```
 
-The common advantage of walking, taking bus and taking subway that people think should be their inexpensiveness and convenience, which can be verified by the following plot. According to this, that people whose year's income are below $24,999 prefer walking, taking bus and subway can be understood. 
+The common advantage of walking, taking bus and taking subway that people think should be their inexpensiveness and convenience, which can be verified by the following plot. According to this, the fact that people whose year's income are below $24,999 prefer walking, taking bus and subway can be understood. 
 
 ```{r}
 walk <- survey %>%
@@ -343,11 +343,11 @@ ggplot(describe) +
         legend.key.size = unit(0.6, "cm"))
 ```
 
-Now let's back to the graph "Income Composition" and think about train and rail. There seems some difference between the proportion of people having different income. But actually we don't think it's caused by the difference between people's income directly. We suspect that it's due to the lack of subway in the region where these residents live. Because when we are asked to choose a transportation mode, if subway and train are available meanwhile, most of us would choose subway due to its fast speed and inexpensiveness. 
+Now let's turn back to the graph "Income Composition" and think about train and rail. There seems some difference between the proportion of people having different income. But actually we don't think it's caused by the difference between people's income directly. We assume that it's due to the lack of subway in the region where these residents live. Because when we are asked to choose a transportation, if subway and train are available at the same time, most of us would choose subway due to its fast speed and inexpensiveness. 
 
 Let's verify this guess by plotting a bar chart of the borough distribution of the residents who prefer train and rail, and compare it with the map of New York City subway system. We also plot the borough distribution of all the residents to determine whether or not the pattern we find is caused by the ubanlanced sampling proportion of different borough.
 
-The bar chart shows that almost 40% respondents that choosing train and rail live in Queens, higher than the sampling proportion. So this can be treated as a significant pattern. We can see from the New York City subway system map that Queens almost has no subway system, indicating that the residents living there have limited public transportation mode choices and that what we suspected has been verified. 
+The bar chart shows that almost 40% respondents that choosing train and rail live in Queens, higher than the sampling proportion. So this can be treated as a significant pattern. We can see from the New York City subway system map that Queens almost has no subway system, indicating that the residents living there have limited public transportation choices and that what we suspected has been verified. 
 
 ```{r}
 df_general["Borough"] <- as.data.frame(unlist(df_general$borough))
@@ -386,7 +386,7 @@ ggplot(borough, aes(fct_reorder(Borough, -Prop), Prop)) +
 
 ![New York City subway system map (Source: https://new.mta.info/sites/default/files/2019-10/subway_map_app_web_Oct_2019.pdf)](image/subway_map.png)
 
-## Differences between age composition of the residents choosing different transportation modes
+## How does age affect residents' choices of transportation? 
 
 We are concerned about the choices of middle-aged residents and old residents, so we divide the respondents into two groups, below 60 years old and above 60 years old. There are 80% middle-aged respondents and almost 20% old residents.
 
@@ -520,7 +520,7 @@ for (element in df_travel[['travel_code']])
   }
 ```
 
-Apart from basic socioeconomic factors, the situation of living and dwelling should also affect their preferences for traveling and types of transportation. We select variables concerning whether the respondents own their houses or not, the cumulative years of living in New York City and the number of children as index of their general living conditions and explore whether owning house, rasing children and living longer years in NYC will have an impact on their choices.
+Apart from basic socioeconomic factors, the situation of living should also affect their preferences for traveling and types of transportation. We select variables concerning whether the respondents own their houses or not, the cumulative years of living in New York City and the number of children as index of their general living conditions and explore whether owning house, raising children and living longer years in NYC will have an impact on their choices.
 
 ```{r}
 # use mode to fill.na
@@ -558,7 +558,7 @@ ggplot(df_rent %>%
   theme(axis.text.x = element_text(size = 8))
 ```
 
-For residence types, we divide all respondents into two groups, those who own their house and those who don't. About 2200 respondents in the sample rent their house taking up about 60% of all, and 1365 respondents own their house. From the stacked bar chart, it's clear that tenants take up the least proportion in the group of traveling by car. Compared to driving their own vehicles, they tend to choose public transportation systems such as bus and subway.
+For residence types, we divide all respondents into two groups, those who own their house and those who don't. About 2,200 respondents in the sample rent their house taking up about 60% of all, and 1365 respondents own their house. From the stacked bar chart, it's clear that tenants take up the least proportion in the group of traveling by car. Compared to driving their own vehicles, they tend to choose public transportation systems such as bus and subway.
 
 ```{r}
 df_walk <- df_rent %>% 
@@ -759,7 +759,7 @@ ggplot(df_transportation, aes(x = reorder(Transportation, -ord), y = prop, fill 
         legend.key.size = unit(0.6, "cm"))
 ```
 
-We expect children to be a distinguishing feature as rasing child would definitely change almost every aspect of an adult's life with traveling included. In all ways of transportation, people with two or more children take up highest proportion in the car category. It's reasonble because one can imagine the trouble of taking subway with two kids but it's also possible that the result comes from the reciporical effects of other variables. For example, those who live longer and own their house are also likely to buy a car and have more children in New York City. Young people will have significant disadvantages in terms of their wealth accumulation and years of living in the city. Further understanding of the phenomenon requires a deeper analysis to control the effect of other variables. 
+We expect children to be a distinguishing feature as raising child would definitely change almost every aspect of an adult's life with traveling included. In all ways of transportation, people with two or more children take up highest proportion in the car category. It's reasonble because one can imagine the trouble of taking subway with two kids but it's also possible that the result comes from the reciprocal effects of other variables. For example, those who live longer and own their house are also likely to buy a car and have more children in New York City. Young people will have significant disadvantages in terms of their wealth accumulation and years of living in the city. Further understanding of the phenomenon requires a deeper analysis to control the effect of other variables. 
 
 ```{r}
 df_children <- merge(df_travel, select(df_general, c(UniqueID, qchildren)), by = "UniqueID")
@@ -870,7 +870,7 @@ ggplot(df_transportation,aes(x = reorder(Transportation, -ord), y = prop,
 
 ## Shut in or Go out: the Effects of People's Lifestyle on their Preferences of Transportation
 
-The variables describing the frequency people receive delivery in the survey allow us to view their choice of traveling from another intriguing angle. As online shopping, takeout food delivery and ride sharing service place a increasing effect on our daily life, people gradually accept them as a substitute for traveling. Based on intuitive understanding of the phenomenon, we assume that people's attitude and frequency of receiving takeout will also be associated with certain preferences of transportation.
+The variables describing the frequency people receive delivery in the survey allow us to view their choice of traveling from another intriguing angle. As online shopping, takeout food delivery and ride sharing service place an increasing effect on our daily life, people gradually accept them as a new choice of transportation. Based on intuitive understanding of the phenomenon, we assume that people's attitude and frequency of receiving takeout will also be associated with certain preferences of transportation.
 
 ```{r}
 df_takeout <- merge(df_travel, select(df_general, c(UniqueID, 
@@ -907,7 +907,7 @@ First we use stacked bar chart to explore the relationship between frequency of 
 
 It can be concluded from the bar chart that people who seldom or never receive takeout food take up the majority of people who choose walking as a way to travel around the city, when people order food delivery service a few times a week or more show a least relative tendency to walk. Similar situation happens in the "For-hire vehicle" group. Those who seldom or never receive food delivery has the lowest relative proportion in "For-hire vehicle" group when those who order a few times a week or more taking up the most compared to other transportation.
 
-Here a "laziness effect"" can be observed. Naturally people who are reluctant to go out will also hold negative attitude towards walking. And the group who love order Uber and take taxi are also likely to choose takeout service as an alternative for going to the restaurant and have dinner. 
+Here a "laziness effect" can be observed. Naturally people who are reluctant to go out will also hold negative attitude towards walking. And the group who love order Uber and take taxi are also likely to choose takeout service as an alternative for going to the restaurant and have dinner. 
 
 Apart from the laziness element, it's possible that the level of acceptance to new service will affect their choice of transportation and food delivery service. Respondents who use Uber are also likely to use a food delivery service app. Some people may reject both and walk to a nearby restaurant to eat. 
 
@@ -1053,7 +1053,7 @@ From the choropleth, we can see that a majority of blocks in New York City choos
 
 As there are not so many subway lines in Staten Island, people use car as a major way of traveling, which is also the case for some areas in Bronx and Long Island. As they locate far from the center of NYC, car is needed for commute and mobility.
 
-An interesting observation is that people living in downtown of Manhattan and some parts of Brooklyn choose walking as their favourite way of transportation. It may be realted to the density of commerial activities and infrastructure so that people do not have to travel long distance to meet their daily needs. As they live in the center of the city, it's unnecessary to take subway or drive a car to their workplaces.
+An interesting observation is that people living in downtown of Manhattan and some parts of Brooklyn choose walking as their favourite way of transportation. It may be related to the density of commercial activities and infrastructure so that people do not have to travel long distance to meet their daily needs. As they live in the center of the city, it's unnecessary to take subway or drive a car to their workplaces.
 
 ```{r}
 df_borough <- select(df_general, c(UniqueID, borough, allwt))
@@ -1168,7 +1168,7 @@ zip_choropleth(plot_friendly, county_zoom = nyc_fips,
                     palette="Greens")
 ```
 
-## Conversion from traditional transportation to ride hailing services
+## Why do residents use ride hailing services in recent years? 
 
 ```{r}
 load("./data/tidy_survey_data.rda") # load data as survey data
@@ -1176,7 +1176,7 @@ load("./data/tidy_survey_data.rda") # load data as survey data
 tidy_survey <- tidy_survey %>% filter(!is.na(UniqueID))
 ```
 
-In this section, we will try to figure out possible factors that will help explain why people choose to use a relatively new transportation service, called ride hailing services. Therefore, we will mostly focus on a subset of participants who has used this kind of services before, according to the survey results. This section will be divided into three parts. First, we will get a preliminary understanding of the preferences of ride hailing services at NYC by plotting basic descriptive statistics of survey questions correlated with this service. Next, we will facet the histogram of the usage frequency by several demographic features, trying to figure out underlying correlations between them. Finally, we will compare the ride hailing services with several other traditional services and make inferences of what are the most important reasons that drive people to use ride hailing services at NYC. 
+In this section, we touch upon a specific topic: why people start to use ride hailing services. Therefore, we will mostly focus on a subset of participants who has used this kind of services before, according to the survey results. This section will be divided into three parts. First, we will get a preliminary understanding of the preferences of ride hailing services at NYC by plotting basic descriptive statistics of survey questions correlated with this service. Next, we will facet the histogram of the usage frequency by several demographic features, trying to figure out underlying correlations between them. Finally, we will compare the ride hailing services with several other traditional services and make inferences of what are the most important reasons that drive people to use ride hailing services at NYC. 
 
 ### Summary statistics of ride hailing services
 
@@ -1317,13 +1317,13 @@ grid.arrange(bin_freq_plot, app_usage_plot, purpose_plot,
 ```
 
 
-### Factors that may influence frequency
+### Factors that influence frequency of using ride hailing services
 
 In this section, we want to investigate whether the frequency of using ride hailing services are affected by the demographic features of the user, e.g., the region he / she lives, the income level and the age. For a specific feature, we will plot the conditional distribution of the frequency, given a specific value of that feature. The basic methodology here is comparing if two distributions look different under different conditions. If so, this feature may play an important role for explaining the frequency of using ride hailing services. Otherwise, its role may be vague and not significant. In this section, the frequency is divided to several groups with a different time range, e.g. several times a month or several times a year, which is also how the survey question Q28b defines frequency.
 
-1. Region v.s. Freq
+1. **Region v.s. Freq**
 
-The survey problem Q8 and Q9 asks for the region that the participant lives. Here we reduced all possible options to the granularity of boroughs at NYC, so there are five different regions in total. The reason why we are interested in the region feature is that different regions may have quite different transportation systems. For example, if the public transportation system is quite complete in one region, people may not use ride hailing services that often, due to the higher price of each trip. Based on this assumption, we can plot the distribution by faceting on the region.
+The survey problem Q8 and Q9 ask for the region that the participant lives. Here we reduced all possible options to the granularity of boroughs at NYC, so there are five different regions in total. The reason why we are interested in the region feature is that different regions may have quite different transportation systems. For example, if the public transportation system is quite complete in one region, people may not use ride hailing services that often, due to the higher price of each trip. Based on this assumption, we can plot the distribution by faceting on the region.
 
 ```{r}
 regions <- tidy_survey %>% 
@@ -1362,7 +1362,7 @@ ggplot(data = region_freq,
 
 From the previous plot that we can notice that most people in each region tend to use ride hailing services a few times a month, instead of those living on Staten island. In general, people living on Staten island take ride hailing trips less often compared with residents in other boroughs, which may due to the fact that Staten island is more like an isolated region compared with the others. The Brooklyn, Manhattan and Queens boroughs show similar patterns, while residents in Manhattan take ride rail trips most frequently. Although the public transportation system is almost perfect at Manhattan, people still take ride hailing trips quite a lot, which somehow contradicts our initial assumption. Another explanation for this phenomenon would be, for a busier and more crowded region, the number of active drivers would also be larger. Therefore, this may shorten the average waiting time for every ride rail trip and make this service more convenient. 
 
-2. Income v.s Freq
+2. **Income v.s Freq**
 
 Next, we want to understand how the frequency of taking ride hailing trips would be influenced by the income level, as the ride hailing services may cost a little more compared with traditional green or yellow taxi. The income information comes from the results of Q6 in the survey. Here we also group the income level to 5 levels, with a span of roughly $50,000 and discard those participants who refused to report their income level. 
 
@@ -1413,7 +1413,7 @@ ggplot(data = income_freq,
 
 Except for the lowest income level and those who refused to disclose their income level, all the other groups show quite similar distributions. For the lowest income group, the frequency distribution is more left skewed compared with the others, which indicates that people in this group will use ride rail services less often. Therefore, generally speaking, the income level is not a significant feature that influences the frequency of taking ride hailing trips. From another aspect, it also reflects that the pricing rules for ride hailing services are reasonable, so the price itself won't become a factor that hinder the growth of ride hailing services.
 
-3. Age v.s. Freq
+3. **Age v.s. Freq**
 
 We may also assume that ride hailing services are more appealing to younger generations who are more capable of accepting new things. Therefore, we also facet on age variable in this section. We first divide the ages of all grown-ups into 6 groups, with a span of roughly 10 years in each group. We also remove those participants who refused to report their ages in this survey for clarity. The age information comes from the results of Q2 in the survey.
 
@@ -1468,9 +1468,9 @@ ggplot(data = age_freq,
         legend.key.size = unit(0.6, "cm"))
 ```
 
-For people younger than 55 years old, the patterns are quite similar. The majority of users in these group take ride hailing trips a few times a month, and older people tend to take ride hailing trip less frequently, which can be observed as the increasing ratio of people with frequency smaller than once a month. For those who are retired, the ratio of "less than a few times in a year" is the largest compared with other groups. However, it's surprising that for those great than 65 years old, over 30% of them still takes ride hailing trips a few times a month. So it may indicate that the newly born ride hailing services is quite user friendly with elder people. 
+For people younger than 55 years old, the patterns are quite similar. The majority of users in these group take ride hailing trips a few times a month, and older people tend to take ride hailing trip less frequently, which can be observed as the increasing ratio of people with frequency smaller than once a month. For those who are retired, the ratio of "less than a few times in a year" is the largest compared with other groups. However, it's surprising that for those great than 65 years old, over 30% of them still takes ride hailing trips a few times a month. So it may indicate that the newly born ride hailing services is quite user friendly for elder people. 
 
-4. With / Without Car v.s Freq
+4. **With / Without Car v.s Freq**
 
 Last, we want to check whether the access of a personal car will influence the choice of taking ride hailing services. Mostly, we will guess that those without access to a car would be more likely to use ride hailing services to travel around. The car access information comes from the results of Q24, and we reduce the results to two groups indicating whether a participant has access to a car.
 
