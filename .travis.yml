@@ -1,3 +1,4 @@
+dist: xenial
 language: R
 sudo: false
 cache:
