@@ -1322,7 +1322,7 @@ bin_freq_plot <- ggplot(data = bin_freq,
        title = "Ride-hailing Service\nCoverage") +
   theme_economist() +
   theme(axis.text.x = element_text(size = 7, angle = 20, vjust = 0.8),
-        plot.title = element_text(size = 8),
+        plot.title = element_text(size = 10),
         legend.position = "right", 
         legend.title = element_blank(),
         legend.text = element_text(size = 9),
@@ -1332,9 +1332,9 @@ bin_freq_plot <- ggplot(data = bin_freq,
 
 ```{r}
 grid.arrange(bin_freq_plot, app_usage_plot, purpose_plot, 
-             layout_matrix = rbind(c(1,2,2,2), c(1,2,2,2),
-                                   c(3,3,3,3), c(3,3,3,3), 
-                                   c(3,3,3,3)))
+             layout_matrix = rbind(c(1,1,2,2,2), c(1,1,2,2,2),
+                                   c(3,3,3,3,3), c(3,3,3,3,3), 
+                                   c(3,3,3,3,3)))
 ```
 
 
