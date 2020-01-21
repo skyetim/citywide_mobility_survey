@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Data Transformation | Analysis of Citywide Mobility Survey</title>
+  <meta name="description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  <meta name="generator" content="bookdown 0.17.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Data Transformation | Analysis of Citywide Mobility Survey" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  <meta name="github-repo" content="skyetim/citywide_mobility_survey" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Data Transformation | Analysis of Citywide Mobility Survey" />
+  
+  <meta name="twitter:description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  
+
+<meta name="author" content="Tian Wang, Chao Huang, Siyuan Wang, Boyu Liu" />
+
+
+<meta name="date" content="2020-01-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="data-sources.html"/>
+<link rel="next" href="missing-value.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EDAV Final Project, Fall 2019 </a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data Sources</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-sources.html"><a href="data-sources.html#background-of-citywide-mobility-survey"><i class="fa fa-check"></i><b>2.1</b> Background of Citywide Mobility Survey</a></li>
+<li class="chapter" data-level="2.2" data-path="data-sources.html"><a href="data-sources.html#basic-information-of-the-dataset"><i class="fa fa-check"></i><b>2.2</b> Basic Information of the dataset</a></li>
+<li class="chapter" data-level="2.3" data-path="data-sources.html"><a href="data-sources.html#references"><i class="fa fa-check"></i><b>2.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data Transformation</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-transformation.html"><a href="data-transformation.html#import-data"><i class="fa fa-check"></i><b>3.1</b> Import data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation.html"><a href="data-transformation.html#issues-in-dataset"><i class="fa fa-check"></i><b>3.2</b> Issues in dataset</a></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation.html"><a href="data-transformation.html#data-cleaning-solutions"><i class="fa fa-check"></i><b>3.3</b> Data cleaning solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="missing-value.html"><a href="missing-value.html"><i class="fa fa-check"></i><b>4</b> Missing Value</a></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#how-does-gender-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.1</b> How does gender affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#how-does-income-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.2</b> How does income affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#how-does-age-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.3</b> How does age affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.4" data-path="results.html"><a href="results.html#how-do-peoples-residence-and-living-situation-affect-their-choices-of-transportation"><i class="fa fa-check"></i><b>5.4</b> How do people’s residence and living situation affect their choices of transportation?</a></li>
+<li class="chapter" data-level="5.5" data-path="results.html"><a href="results.html#shut-in-or-go-out-the-effects-of-peoples-lifestyle-on-their-preferences-of-transportation"><i class="fa fa-check"></i><b>5.5</b> Shut in or Go out: the Effects of People’s Lifestyle on their Preferences of Transportation</a></li>
+<li class="chapter" data-level="5.6" data-path="results.html"><a href="results.html#how-do-locations-affect-choices-of-transportation"><i class="fa fa-check"></i><b>5.6</b> How do Locations Affect Choices of Transportation?</a></li>
+<li class="chapter" data-level="5.7" data-path="results.html"><a href="results.html#why-do-residents-use-ride-hailing-services-in-recent-years"><i class="fa fa-check"></i><b>5.7</b> Why do residents use ride hailing services in recent years?</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="results.html"><a href="results.html#summary-statistics-of-ride-hailing-services"><i class="fa fa-check"></i><b>5.7.1</b> Summary statistics of ride hailing services</a></li>
+<li class="chapter" data-level="5.7.2" data-path="results.html"><a href="results.html#factors-that-influence-frequency-of-using-ride-hailing-services"><i class="fa fa-check"></i><b>5.7.2</b> Factors that influence frequency of using ride hailing services</a></li>
+<li class="chapter" data-level="5.7.3" data-path="results.html"><a href="results.html#comparison-between-ride-hailing-services-and-other-transportation"><i class="fa fa-check"></i><b>5.7.3</b> Comparison between ride-hailing services and other transportation</a></li>
+<li class="chapter" data-level="5.7.4" data-path="results.html"><a href="results.html#conclusion"><i class="fa fa-check"></i><b>5.7.4</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-component-a-dashboard-for-eda.html"><a href="interactive-component-a-dashboard-for-eda.html"><i class="fa fa-check"></i><b>6</b> Interactive Component: A dashboard for EDA</a></li>
+<li class="chapter" data-level="7" data-path="conclusion-1.html"><a href="conclusion-1.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
+<li class="chapter" data-level="8" data-path="pset-5.html"><a href="pset-5.html"><i class="fa fa-check"></i><b>8</b> Pset 5</a><ul>
+<li class="chapter" data-level="8.1" data-path="pset-5.html"><a href="pset-5.html#the-team"><i class="fa fa-check"></i><b>8.1</b> The Team</a></li>
+<li class="chapter" data-level="8.2" data-path="pset-5.html"><a href="pset-5.html#the-questions"><i class="fa fa-check"></i><b>8.2</b> The Questions</a></li>
+<li class="chapter" data-level="8.3" data-path="pset-5.html"><a href="pset-5.html#which-output-format-do-you-plan-to-use-to-submit-the-project"><i class="fa fa-check"></i><b>8.3</b> Which output format do you plan to use to submit the project?</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="pset-5.html"><a href="pset-5.html#the-data"><i class="fa fa-check"></i><b>8.3.1</b> The Data</a></li>
+<li class="chapter" data-level="8.3.2" data-path="pset-5.html"><a href="pset-5.html#provide-a-short-summary-including-2-3-graphs-of-your-initial-investigations."><i class="fa fa-check"></i><b>8.3.2</b> Provide a short summary, including 2-3 graphs, of your initial investigations.</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Citywide Mobility Survey</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data-transformation" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Data Transformation</h1>
+<div id="import-data" class="section level2">
+<h2><span class="header-section-number">3.1</span> Import data</h2>
+<p>Since the survey result is already saved in the csv file, which we renamed as “raw_survey_data.csv” under the “data” directory. For processed datasets, we saved them in the binary form, e.g. “tidy_survey_data.rda”, which can be imported into the workspace by using <code>load</code> command in R.</p>
+</div>
+<div id="issues-in-dataset" class="section level2">
+<h2><span class="header-section-number">3.2</span> Issues in dataset</h2>
+<p>The detailed description can be found in the “Column Info” table of “Data Dictionary.xlsx” file in the data folder. Though most columns are well defined and ready to use, we still need to deal with two specific issues:</p>
+<ol style="list-style-type: decimal">
+<li><p>There are survey questions where each participant may choose several answers for a single question. The raw data encoded each choice to a seperate column, where the value can only be 0 or 1. In other words, instead of assigning one column to one question, the original data file stored this problem in a binary encoding form, which is “dirty” in the sense of tabular data representation. Therefore, a more preferred representation would be merging all these columns into one column to keep the dataset “clean”. An example for this issue would be Q22a-22e, which asked “Which of the following modes of transportation do you use to get around the city?”, and every possible transportation mode was encoded as a binary column.</p></li>
+<li><p>For those columns mentioned in issue 1, the name of each choice is not contained in the csv file. Therefore, we need to query the column info in the xslx data dictionary file to get the exact name for every choice. Take Q22a-22e for example, the actual choices should be “Subway”, “Local bus” etc. Fortunately, all these columns are saved in a unified form, where each choice is appended after the wording of the survey question. Therefore, only string manipulations are required to extract those choices.</p></li>
+</ol>
+</div>
+<div id="data-cleaning-solutions" class="section level2">
+<h2><span class="header-section-number">3.3</span> Data cleaning solutions</h2>
+<p>In order to solve the first issue, we create a function called “one_hot_to_factor” in “clean_data.Rmd”. When providing several columns covering all possible choices of a survey question and a corresponding choices dict as input, this function can help transform all these columns into a new column using nested list as its value. The basic logic would be first combining all these column into one with binary vector as its value. Then applying this one hot mapping on the choices dict would provide a character vector for each row, which contains all choices a participant selected in this question. And we are done. Note that nested list can not be saved in a normal csv file, therefore we use a binary data file to save it. To extract value from the nested list, the “unnest” function in “dplyr” package would be of great help.</p>
+<p>For the second issue, we also create a function called “parse_column_description”, which takes a prefix (i.e., the wording of a specific survey question) as input, and it will start searching for it in all column names. After removing the prefix for each matched column names, we get the choices dict required in the previous step.</p>
+<p>With these two functions, we can transform those “dirty” columns to “tidy” ones with few lines of code. There are also columns that are encoded using number as levels, e.g., <code>qrace</code> which stands for the race of a participant. Though not very human readable at first sight, when we plot those columns out, we can manually query the data dictionary file to transform those numbers to corresponding words or choices and show them in the plot. So we simply keep those columns in the tidy version of the dataset. The final output of this data cleaning phase is saved in “tidy_survey_data.rda” file under data folder.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="data-sources.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="missing-value.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/skyetim/citywide_mobility_survey/edit/master/data_transformation.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

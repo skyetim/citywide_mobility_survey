@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 8 Pset 5 | Analysis of Citywide Mobility Survey</title>
+  <meta name="description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  <meta name="generator" content="bookdown 0.17.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 8 Pset 5 | Analysis of Citywide Mobility Survey" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  <meta name="github-repo" content="skyetim/citywide_mobility_survey" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 8 Pset 5 | Analysis of Citywide Mobility Survey" />
+  
+  <meta name="twitter:description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  
+
+<meta name="author" content="Tian Wang, Chao Huang, Siyuan Wang, Boyu Liu" />
+
+
+<meta name="date" content="2020-01-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="conclusion-1.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EDAV Final Project, Fall 2019 </a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data Sources</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-sources.html"><a href="data-sources.html#background-of-citywide-mobility-survey"><i class="fa fa-check"></i><b>2.1</b> Background of Citywide Mobility Survey</a></li>
+<li class="chapter" data-level="2.2" data-path="data-sources.html"><a href="data-sources.html#basic-information-of-the-dataset"><i class="fa fa-check"></i><b>2.2</b> Basic Information of the dataset</a></li>
+<li class="chapter" data-level="2.3" data-path="data-sources.html"><a href="data-sources.html#references"><i class="fa fa-check"></i><b>2.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data Transformation</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-transformation.html"><a href="data-transformation.html#import-data"><i class="fa fa-check"></i><b>3.1</b> Import data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation.html"><a href="data-transformation.html#issues-in-dataset"><i class="fa fa-check"></i><b>3.2</b> Issues in dataset</a></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation.html"><a href="data-transformation.html#data-cleaning-solutions"><i class="fa fa-check"></i><b>3.3</b> Data cleaning solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="missing-value.html"><a href="missing-value.html"><i class="fa fa-check"></i><b>4</b> Missing Value</a></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#how-does-gender-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.1</b> How does gender affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#how-does-income-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.2</b> How does income affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#how-does-age-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.3</b> How does age affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.4" data-path="results.html"><a href="results.html#how-do-peoples-residence-and-living-situation-affect-their-choices-of-transportation"><i class="fa fa-check"></i><b>5.4</b> How do people’s residence and living situation affect their choices of transportation?</a></li>
+<li class="chapter" data-level="5.5" data-path="results.html"><a href="results.html#shut-in-or-go-out-the-effects-of-peoples-lifestyle-on-their-preferences-of-transportation"><i class="fa fa-check"></i><b>5.5</b> Shut in or Go out: the Effects of People’s Lifestyle on their Preferences of Transportation</a></li>
+<li class="chapter" data-level="5.6" data-path="results.html"><a href="results.html#how-do-locations-affect-choices-of-transportation"><i class="fa fa-check"></i><b>5.6</b> How do Locations Affect Choices of Transportation?</a></li>
+<li class="chapter" data-level="5.7" data-path="results.html"><a href="results.html#why-do-residents-use-ride-hailing-services-in-recent-years"><i class="fa fa-check"></i><b>5.7</b> Why do residents use ride hailing services in recent years?</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="results.html"><a href="results.html#summary-statistics-of-ride-hailing-services"><i class="fa fa-check"></i><b>5.7.1</b> Summary statistics of ride hailing services</a></li>
+<li class="chapter" data-level="5.7.2" data-path="results.html"><a href="results.html#factors-that-influence-frequency-of-using-ride-hailing-services"><i class="fa fa-check"></i><b>5.7.2</b> Factors that influence frequency of using ride hailing services</a></li>
+<li class="chapter" data-level="5.7.3" data-path="results.html"><a href="results.html#comparison-between-ride-hailing-services-and-other-transportation"><i class="fa fa-check"></i><b>5.7.3</b> Comparison between ride-hailing services and other transportation</a></li>
+<li class="chapter" data-level="5.7.4" data-path="results.html"><a href="results.html#conclusion"><i class="fa fa-check"></i><b>5.7.4</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-component-a-dashboard-for-eda.html"><a href="interactive-component-a-dashboard-for-eda.html"><i class="fa fa-check"></i><b>6</b> Interactive Component: A dashboard for EDA</a></li>
+<li class="chapter" data-level="7" data-path="conclusion-1.html"><a href="conclusion-1.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
+<li class="chapter" data-level="8" data-path="pset-5.html"><a href="pset-5.html"><i class="fa fa-check"></i><b>8</b> Pset 5</a><ul>
+<li class="chapter" data-level="8.1" data-path="pset-5.html"><a href="pset-5.html#the-team"><i class="fa fa-check"></i><b>8.1</b> The Team</a></li>
+<li class="chapter" data-level="8.2" data-path="pset-5.html"><a href="pset-5.html#the-questions"><i class="fa fa-check"></i><b>8.2</b> The Questions</a></li>
+<li class="chapter" data-level="8.3" data-path="pset-5.html"><a href="pset-5.html#which-output-format-do-you-plan-to-use-to-submit-the-project"><i class="fa fa-check"></i><b>8.3</b> Which output format do you plan to use to submit the project?</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="pset-5.html"><a href="pset-5.html#the-data"><i class="fa fa-check"></i><b>8.3.1</b> The Data</a></li>
+<li class="chapter" data-level="8.3.2" data-path="pset-5.html"><a href="pset-5.html#provide-a-short-summary-including-2-3-graphs-of-your-initial-investigations."><i class="fa fa-check"></i><b>8.3.2</b> Provide a short summary, including 2-3 graphs, of your initial investigations.</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Citywide Mobility Survey</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="pset-5" class="section level1">
+<h1><span class="header-section-number">Chapter 8</span> Pset 5</h1>
+<p>This assignment is designed to help you get started on the final project. Be sure to review the final project instructions (<a href="https://edav.info/project.html" class="uri">https://edav.info/project.html</a>), in particular the new section on reproducible workflow (<a href="https://edav.info/project.html#reproducible-workflow" class="uri">https://edav.info/project.html#reproducible-workflow</a>), which summarizes principles that we’ve discussed in class.</p>
+<div id="the-team" class="section level2">
+<h2><span class="header-section-number">8.1</span> The Team</h2>
+<p>[2 points]</p>
+<ol style="list-style-type: lower-alpha">
+<li>Who’s on the team? (Include names and UNIs)</li>
+</ol>
+<ol style="list-style-type: decimal">
+<li>Tian Wang, tw2736</li>
+<li>Chao Huang, ch3474</li>
+<li>Siyuan Wang, sw3418</li>
+<li>Boyu Liu, bl2791</li>
+</ol>
+<ol start="2" style="list-style-type: lower-alpha">
+<li>How do you plan to divide up the work? (Grading is on a group basis. The point of asking is to encourage you to think about this.)</li>
+</ol>
+<p>As we have several questions we are curious about, each of the team member will be responsible for exploring one question.</p>
+</div>
+<div id="the-questions" class="section level2">
+<h2><span class="header-section-number">8.2</span> The Questions</h2>
+<p>[6 points]</p>
+<p>List three questions that you hope you will be able to answer from your research.</p>
+<ol style="list-style-type: lower-alpha">
+<li><p>What are the factors and experiences that drive transportation choices for New York City residents?</p></li>
+<li><p>What’s the transportation preference and usage pattern at the overal city level?</p></li>
+<li><p>What’s relationship between transportation preference and air quality?</p></li>
+</ol>
+</div>
+<div id="which-output-format-do-you-plan-to-use-to-submit-the-project" class="section level2">
+<h2><span class="header-section-number">8.3</span> Which output format do you plan to use to submit the project?</h2>
+<p>[2 points]</p>
+<p>bookdown.</p>
+<div id="the-data" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> The Data</h3>
+<p>What is your data source? What is your method for importing data? Please be specific. Provide relevant information such as any obstacles you’re encountering and what you plan to do to overcome them.</p>
+<p>[5 points]</p>
+<ul>
+<li><p>We plan to analyze “Citywide Mobility Survey - Main Survey” dataset, the source of which is NYC Department of Transportation. Full dataset and description can be downloaded <a href="https://www1.nyc.gov/html/dot/html/about/citywide-mobility-survey.shtml">here</a>.</p></li>
+<li><p>We download the dataset from the website and use read.csv() to import data.</p></li>
+<li><p>Obstacles: How to deal with sampling weights? This dataset has a column of sampling weight, which can be used to correct for imperfections (e.g. the selection of units with unequal probabilities, non-coverage of the population) in the sample that might lead to bias and other departures between the sample and the population. At the beginning, we’re confused about how to take these weights into account when analyzing categorical variable. But after careful consideration, we plan to multiply each observation with the corresponding sampling weight and then do the subsequent exploratory data visualization.</p></li>
+</ul>
+</div>
+<div id="provide-a-short-summary-including-2-3-graphs-of-your-initial-investigations." class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Provide a short summary, including 2-3 graphs, of your initial investigations.</h3>
+<p>[10 points]</p>
+<p>This survey conducted among New York City Residents in two ways, over phone and online. Both of them have sample size 1800. The survey conducted over phone reached more general New York population and the survey conducted online targeted the population in certain neighborhoods that are difficult to reach by phone, not representative of New York City at the overall city level. So we will use different sub datasets to analyze what we are concerned about on the overall city level and the survey zone level.</p>
+<p>Another important thing we have mentioned in the Obstacles part is that we need to take survey weights into consideration when we analyze the dataset. The weights are given by US Department of Transportation, which were calculated based on age, gender, ethnicity, educational attainment and geography.</p>
+<p>In this stage,</p>
+<ol style="list-style-type: decimal">
+<li>We explored some basic information of the phone survey respondents, including age, gender, race, education and income. In these features, age is continuous data and the others are categorical data, so we visualized them using histogram and bar chart, respectively.</li>
+</ol>
+<p>Remarks:</p>
+<p>For Gender, <em>1 = Male, 2 = Female</em>.</p>
+<p>For Race, <em>1 = White/Caucasian, 2 = Black/ African American/ Caribbean American, 3 = Asian, 4 = American Indian or Alaska Native, 5 = Native Hawaiian or Pacific Islander, 6 = Other, 7 = Two or more races, 8 = Don’t know, 9 = Refused</em>.</p>
+<p>For Education, <em>1 = No high school, 2 = Some high school, 3 = High school graduate or equivalent (i.e., GED), 4 = Some college but degree not received or in progress, 5 = Associate degree (i.e., AA, AS), 6 = Bachelor’s degree (i.e., BA, BS, AB), 7 = Graduate degree (i.e., Master’s, Professional, Doctorate), 8 = Don’t know, 9 = Refused</em>.</p>
+<p>For Income, <em>1 = Less than $14,999, 2 = $15,000 - $24,999, 3 = $25,000 - $34,999, 4 = $35,000 - $49,999, 5 = $50,000 - $74,999, 6 = $75,000 - $99,999, 7 = $100,000 - $149,999, 8 = $150,000 - $199,999, 9 = $200,000 and above, 10 = Don’t know, 11 = Refused</em>.</p>
+<p>Results Summary:</p>
+<ul>
+<li><p>Age: Age is bimodel distributed and its two modes are around 30 and 50. Its range is [18, 99].</p></li>
+<li><p>Gender: Female and male respondents are about 56.20% and 43.80% of the total.</p></li>
+<li><p>Race: The majority of phone respondents are White or Caucasian, followed by Black/ African American/ Caribbean American. American Indian or Alaska Native and Native Hawaiian or Pacific Islander are the least.</p></li>
+<li><p>Income: Most respondents have total annual household income $50,000 - $74,999 and least respondents have total annual household income $200,000 and above. We can imagine the distribution of annual income, which would be right-skewed.</p></li>
+<li><p>Education: The majority of respondents have at least high school education.</p></li>
+</ul>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-55-1.png" width="672" style="display: block; margin: auto;" /><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-55-2.png" width="672" style="display: block; margin: auto;" /></p>
+<ol start="2" style="list-style-type: decimal">
+<li>We explored the relationship between gender and choices for modes of transportation. Here we cannot use mosaic plot, since the question for modes of transportation allows multiple choices. So we can only focus on the number of respondents choosing each answers.</li>
+</ol>
+<p>From the following Cleverland dot plot, we can see that both females and males prefer going out by subway. Less of them will use train and ferry to get around the city. The overall preferences of females and males for modes of transportation are roughly the same, except that most of females also prefer taking bus and walking.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-56-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We further analyzed the reasons for choosing walking, subway and bus to get around the city. Not surprisingly, the common causes for these choices are that they are inexpensive and convenient. Generally, walking and taking bus would take a long time to get to a place and subway is a little uncomfortable. However, the majority of responsdents, especially females, still prefer taking subway, bus and walking to get around the city, indicating that they are more concerned about the price and level of convenience.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-58-1.png" width="672" style="display: block; margin: auto;" />
+<img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-59-1.png" width="672" style="display: block; margin: auto;" />
+<img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-60-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Next step, we will mainly focus on multivariable analysis, trying to figure out the factors and experiences that drive transportation choices for New York City residents. Also, we will analyze the transportation preference of New York City residents and the usage pattern at the overall city level.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="conclusion-1.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/skyetim/citywide_mobility_survey/edit/master/PSet5-A.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

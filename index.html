@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Analysis of Citywide Mobility Survey</title>
+  <meta name="description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  <meta name="generator" content="bookdown 0.17.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Analysis of Citywide Mobility Survey" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  <meta name="github-repo" content="skyetim/citywide_mobility_survey" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Analysis of Citywide Mobility Survey" />
+  
+  <meta name="twitter:description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  
+
+<meta name="author" content="Tian Wang, Chao Huang, Siyuan Wang, Boyu Liu" />
+
+
+<meta name="date" content="2020-01-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="data-sources.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EDAV Final Project, Fall 2019 </a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data Sources</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-sources.html"><a href="data-sources.html#background-of-citywide-mobility-survey"><i class="fa fa-check"></i><b>2.1</b> Background of Citywide Mobility Survey</a></li>
+<li class="chapter" data-level="2.2" data-path="data-sources.html"><a href="data-sources.html#basic-information-of-the-dataset"><i class="fa fa-check"></i><b>2.2</b> Basic Information of the dataset</a></li>
+<li class="chapter" data-level="2.3" data-path="data-sources.html"><a href="data-sources.html#references"><i class="fa fa-check"></i><b>2.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data Transformation</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-transformation.html"><a href="data-transformation.html#import-data"><i class="fa fa-check"></i><b>3.1</b> Import data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation.html"><a href="data-transformation.html#issues-in-dataset"><i class="fa fa-check"></i><b>3.2</b> Issues in dataset</a></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation.html"><a href="data-transformation.html#data-cleaning-solutions"><i class="fa fa-check"></i><b>3.3</b> Data cleaning solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="missing-value.html"><a href="missing-value.html"><i class="fa fa-check"></i><b>4</b> Missing Value</a></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#how-does-gender-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.1</b> How does gender affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#how-does-income-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.2</b> How does income affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#how-does-age-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.3</b> How does age affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.4" data-path="results.html"><a href="results.html#how-do-peoples-residence-and-living-situation-affect-their-choices-of-transportation"><i class="fa fa-check"></i><b>5.4</b> How do people’s residence and living situation affect their choices of transportation?</a></li>
+<li class="chapter" data-level="5.5" data-path="results.html"><a href="results.html#shut-in-or-go-out-the-effects-of-peoples-lifestyle-on-their-preferences-of-transportation"><i class="fa fa-check"></i><b>5.5</b> Shut in or Go out: the Effects of People’s Lifestyle on their Preferences of Transportation</a></li>
+<li class="chapter" data-level="5.6" data-path="results.html"><a href="results.html#how-do-locations-affect-choices-of-transportation"><i class="fa fa-check"></i><b>5.6</b> How do Locations Affect Choices of Transportation?</a></li>
+<li class="chapter" data-level="5.7" data-path="results.html"><a href="results.html#why-do-residents-use-ride-hailing-services-in-recent-years"><i class="fa fa-check"></i><b>5.7</b> Why do residents use ride hailing services in recent years?</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="results.html"><a href="results.html#summary-statistics-of-ride-hailing-services"><i class="fa fa-check"></i><b>5.7.1</b> Summary statistics of ride hailing services</a></li>
+<li class="chapter" data-level="5.7.2" data-path="results.html"><a href="results.html#factors-that-influence-frequency-of-using-ride-hailing-services"><i class="fa fa-check"></i><b>5.7.2</b> Factors that influence frequency of using ride hailing services</a></li>
+<li class="chapter" data-level="5.7.3" data-path="results.html"><a href="results.html#comparison-between-ride-hailing-services-and-other-transportation"><i class="fa fa-check"></i><b>5.7.3</b> Comparison between ride-hailing services and other transportation</a></li>
+<li class="chapter" data-level="5.7.4" data-path="results.html"><a href="results.html#conclusion"><i class="fa fa-check"></i><b>5.7.4</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-component-a-dashboard-for-eda.html"><a href="interactive-component-a-dashboard-for-eda.html"><i class="fa fa-check"></i><b>6</b> Interactive Component: A dashboard for EDA</a></li>
+<li class="chapter" data-level="7" data-path="conclusion-1.html"><a href="conclusion-1.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
+<li class="chapter" data-level="8" data-path="pset-5.html"><a href="pset-5.html"><i class="fa fa-check"></i><b>8</b> Pset 5</a><ul>
+<li class="chapter" data-level="8.1" data-path="pset-5.html"><a href="pset-5.html#the-team"><i class="fa fa-check"></i><b>8.1</b> The Team</a></li>
+<li class="chapter" data-level="8.2" data-path="pset-5.html"><a href="pset-5.html#the-questions"><i class="fa fa-check"></i><b>8.2</b> The Questions</a></li>
+<li class="chapter" data-level="8.3" data-path="pset-5.html"><a href="pset-5.html#which-output-format-do-you-plan-to-use-to-submit-the-project"><i class="fa fa-check"></i><b>8.3</b> Which output format do you plan to use to submit the project?</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="pset-5.html"><a href="pset-5.html#the-data"><i class="fa fa-check"></i><b>8.3.1</b> The Data</a></li>
+<li class="chapter" data-level="8.3.2" data-path="pset-5.html"><a href="pset-5.html#provide-a-short-summary-including-2-3-graphs-of-your-initial-investigations."><i class="fa fa-check"></i><b>8.3.2</b> Provide a short summary, including 2-3 graphs, of your initial investigations.</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Citywide Mobility Survey</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Analysis of Citywide Mobility Survey</h1>
+<p class="author"><em>Tian Wang, Chao Huang, Siyuan Wang, Boyu Liu</em></p>
+<p class="date"><em>2020-01-21</em></p>
+</div>
+<div id="introduction" class="section level1">
+<h1><span class="header-section-number">Chapter 1</span> Introduction</h1>
+<p>What’s your choice of transportation if you’re going to get around the New York City? Think about it and give us your answer.</p>
+<p>New York City is famous for its convenient and complex transportation network, including one of the largest subway systems in the world and other robust means of transportation, such as bus, car, train and ferry. Moreover, the system is continuously improving and modernizing, especially after the launch of the Second Avenue Subway (source: <a href="http://www.nyc.gov/html/dot/downloads/pdf/mobility-report-2018-print.pdf">New York City Mobility Report, 2018</a>). This diverisity allows residents of New York City to have various choices when they’re out for work, traveling, picking up children, etc.</p>
+<p>But how do they decide? Back to our question proposed at the beginning, which transporation you will choose to get around the New York City. You might not realize that the choice you came up with was actually the result getting after taking several factors into consideration, both subjective and objective. We are interested in identifying these factors, which motivate transportation choices for New York City residents, and comparing the differences between the different demographics in transportation choices in New York City. We would hope that our exploratory data analysis can distinguish interesting patterns, potentially helping the Department of Transportation (DOT) to decide on which transportation is worth further investment (or at least, helping us to decide on which transportation to use when we start our career here).</p>
+<p>The rest of the bookdown is arranged as follows:</p>
+<ol style="list-style-type: decimal">
+<li>We first introduce our dataset: citywide mobility survey, a phone and online questionnaire launched by NYC DOT in 2017 that was taken by thousands of New Yorkers across all five boroughs. This survey assessed the residents’ behaviors, as well as their attitudes and perceptions towards transportation throughout New York City, which makes it possible for us to solve the questions we raised above.</li>
+<li>Then we briefly introduce our data transformation method and handling of missing value in Chapter 3 and 4.</li>
+<li>We give our detailed analysis in Chapter 5.</li>
+<li>After our analysis, we have prepared an interactive dashboard for you to do your own research and find out what’s the typical preferences of transportation for your demographic in Chapter 6.</li>
+<li>Finally, we conclude in Chapter 7.</li>
+</ol>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="data-sources.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/skyetim/citywide_mobility_survey/edit/master/index.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

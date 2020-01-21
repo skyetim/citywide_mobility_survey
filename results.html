@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Results | Analysis of Citywide Mobility Survey</title>
+  <meta name="description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  <meta name="generator" content="bookdown 0.17.2 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Results | Analysis of Citywide Mobility Survey" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  <meta name="github-repo" content="skyetim/citywide_mobility_survey" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Results | Analysis of Citywide Mobility Survey" />
+  
+  <meta name="twitter:description" content="This book holds the EDAV final project for Group 3, Fall 2019, Columbia University" />
+  
+
+<meta name="author" content="Tian Wang, Chao Huang, Siyuan Wang, Boyu Liu" />
+
+
+<meta name="date" content="2020-01-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="missing-value.html"/>
+<link rel="next" href="interactive-component-a-dashboard-for-eda.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">EDAV Final Project, Fall 2019 </a></li>
+
+<li class="divider"></li>
+<li class="part"><span><b>I Introduction</b></span></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a></li>
+<li class="chapter" data-level="2" data-path="data-sources.html"><a href="data-sources.html"><i class="fa fa-check"></i><b>2</b> Data Sources</a><ul>
+<li class="chapter" data-level="2.1" data-path="data-sources.html"><a href="data-sources.html#background-of-citywide-mobility-survey"><i class="fa fa-check"></i><b>2.1</b> Background of Citywide Mobility Survey</a></li>
+<li class="chapter" data-level="2.2" data-path="data-sources.html"><a href="data-sources.html#basic-information-of-the-dataset"><i class="fa fa-check"></i><b>2.2</b> Basic Information of the dataset</a></li>
+<li class="chapter" data-level="2.3" data-path="data-sources.html"><a href="data-sources.html#references"><i class="fa fa-check"></i><b>2.3</b> References</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data-transformation.html"><a href="data-transformation.html"><i class="fa fa-check"></i><b>3</b> Data Transformation</a><ul>
+<li class="chapter" data-level="3.1" data-path="data-transformation.html"><a href="data-transformation.html#import-data"><i class="fa fa-check"></i><b>3.1</b> Import data</a></li>
+<li class="chapter" data-level="3.2" data-path="data-transformation.html"><a href="data-transformation.html#issues-in-dataset"><i class="fa fa-check"></i><b>3.2</b> Issues in dataset</a></li>
+<li class="chapter" data-level="3.3" data-path="data-transformation.html"><a href="data-transformation.html#data-cleaning-solutions"><i class="fa fa-check"></i><b>3.3</b> Data cleaning solutions</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="missing-value.html"><a href="missing-value.html"><i class="fa fa-check"></i><b>4</b> Missing Value</a></li>
+<li class="chapter" data-level="5" data-path="results.html"><a href="results.html"><i class="fa fa-check"></i><b>5</b> Results</a><ul>
+<li class="chapter" data-level="5.1" data-path="results.html"><a href="results.html#how-does-gender-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.1</b> How does gender affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.2" data-path="results.html"><a href="results.html#how-does-income-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.2</b> How does income affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.3" data-path="results.html"><a href="results.html#how-does-age-affect-residents-choices-of-transportation"><i class="fa fa-check"></i><b>5.3</b> How does age affect residents’ choices of transportation?</a></li>
+<li class="chapter" data-level="5.4" data-path="results.html"><a href="results.html#how-do-peoples-residence-and-living-situation-affect-their-choices-of-transportation"><i class="fa fa-check"></i><b>5.4</b> How do people’s residence and living situation affect their choices of transportation?</a></li>
+<li class="chapter" data-level="5.5" data-path="results.html"><a href="results.html#shut-in-or-go-out-the-effects-of-peoples-lifestyle-on-their-preferences-of-transportation"><i class="fa fa-check"></i><b>5.5</b> Shut in or Go out: the Effects of People’s Lifestyle on their Preferences of Transportation</a></li>
+<li class="chapter" data-level="5.6" data-path="results.html"><a href="results.html#how-do-locations-affect-choices-of-transportation"><i class="fa fa-check"></i><b>5.6</b> How do Locations Affect Choices of Transportation?</a></li>
+<li class="chapter" data-level="5.7" data-path="results.html"><a href="results.html#why-do-residents-use-ride-hailing-services-in-recent-years"><i class="fa fa-check"></i><b>5.7</b> Why do residents use ride hailing services in recent years?</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="results.html"><a href="results.html#summary-statistics-of-ride-hailing-services"><i class="fa fa-check"></i><b>5.7.1</b> Summary statistics of ride hailing services</a></li>
+<li class="chapter" data-level="5.7.2" data-path="results.html"><a href="results.html#factors-that-influence-frequency-of-using-ride-hailing-services"><i class="fa fa-check"></i><b>5.7.2</b> Factors that influence frequency of using ride hailing services</a></li>
+<li class="chapter" data-level="5.7.3" data-path="results.html"><a href="results.html#comparison-between-ride-hailing-services-and-other-transportation"><i class="fa fa-check"></i><b>5.7.3</b> Comparison between ride-hailing services and other transportation</a></li>
+<li class="chapter" data-level="5.7.4" data-path="results.html"><a href="results.html#conclusion"><i class="fa fa-check"></i><b>5.7.4</b> Conclusion</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="interactive-component-a-dashboard-for-eda.html"><a href="interactive-component-a-dashboard-for-eda.html"><i class="fa fa-check"></i><b>6</b> Interactive Component: A dashboard for EDA</a></li>
+<li class="chapter" data-level="7" data-path="conclusion-1.html"><a href="conclusion-1.html"><i class="fa fa-check"></i><b>7</b> Conclusion</a></li>
+<li class="chapter" data-level="8" data-path="pset-5.html"><a href="pset-5.html"><i class="fa fa-check"></i><b>8</b> Pset 5</a><ul>
+<li class="chapter" data-level="8.1" data-path="pset-5.html"><a href="pset-5.html#the-team"><i class="fa fa-check"></i><b>8.1</b> The Team</a></li>
+<li class="chapter" data-level="8.2" data-path="pset-5.html"><a href="pset-5.html#the-questions"><i class="fa fa-check"></i><b>8.2</b> The Questions</a></li>
+<li class="chapter" data-level="8.3" data-path="pset-5.html"><a href="pset-5.html#which-output-format-do-you-plan-to-use-to-submit-the-project"><i class="fa fa-check"></i><b>8.3</b> Which output format do you plan to use to submit the project?</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="pset-5.html"><a href="pset-5.html#the-data"><i class="fa fa-check"></i><b>8.3.1</b> The Data</a></li>
+<li class="chapter" data-level="8.3.2" data-path="pset-5.html"><a href="pset-5.html#provide-a-short-summary-including-2-3-graphs-of-your-initial-investigations."><i class="fa fa-check"></i><b>8.3.2</b> Provide a short summary, including 2-3 graphs, of your initial investigations.</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Analysis of Citywide Mobility Survey</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="results" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Results</h1>
+<div id="how-does-gender-affect-residents-choices-of-transportation" class="section level2">
+<h2><span class="header-section-number">5.1</span> How does gender affect residents’ choices of transportation?</h2>
+<p>Calculate the proportion of the respondents with different gender. There are totally 41.12% males and 58.77% females among all the respondents.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>After removing the records which are “Don’t know” or “Refused” in Gender, we plot a stacked bar chart and use the proportion of each gender we calculated above as the basis for comparison. Note that if there’s no difference between the gender composition of each transportation mode, then the line separates male and female should be on the same level.</p>
+<p>We can easily notice that the gender composition among different modes are different, especially bicycle. Almost 70% residents that prefer riding a bicycle to get around the city are males. On the contrary, relative less males than females would like to choose bus, for-hire vehicle and walk, which is not due to the unbalanced sampling proportion of different gender.</p>
+<p>In order to interpret the huge difference between the number of males and females preferring bicycle, we propose several possible reasons firstly. It may be because females do not think riding bicycle is safe enough in New York City due to bad road conditions, or males want to make use of their spare time to take exercise, for which riding bicycle is a good idea. We can further verify our guesses by exploring the question in the questionnaire, “Which of the following words most apply to Bicycling?”.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Visualize respondents’ positive descriptions of bicycling via Cleveland dot plot faceted by gender. Here, “positive” means they think bicycling has such advantage. We separate respondents into two groups, preferring bicycling and not preferring bicycling.</p>
+<p>For females, both prefer and not prefer bicycling, the majority of them think bicycling is inexpensive and convenient, although the differences between the proportions of the supporters are large. The proportion of females that think riding a bicycle is safe enough is the least, expecially for those preferring bicycling. This indicates that the females choosing bicycle as the mode to get around city might value low cost and high level of convenience most when comparing safety with these two advantages. This is the same for males. Now consider the result showing in figure “Gender Composition” that almost 70% people who prefer bicycling are males. We can conclude that more males would pay more attention to the advantages of bicycle (e.g. inexpensiveness, convenience, etc.) than females. In other words, more females may be concerned about safety most, which is consistent with our guess.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>There’s another question in the questionnaire which is “How important is it to you that making it safer and easier to bike by adding bike lanes”. This helps us decide one aspect which people think causes the danger of riding bicycle in New York City. We plot it into a diverted bar chart. It shows that both males and females think adding bike lanes are really important, although to different degree. This indicates that the current number of bike lanes in NYC are still not enough and car accident may negatively influence the proportion of residents who would like to ride a bicycle to get around the city.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="how-does-income-affect-residents-choices-of-transportation" class="section level2">
+<h2><span class="header-section-number">5.2</span> How does income affect residents’ choices of transportation?</h2>
+<p>We are also interested in the possible relationship between resident’s income and their choices. First we plot a bar chart in terms of income to quickly learn about the proportion of respondents with different income. According to our interest, we recombine the income into 4 categories, which are “$100,000 and above”, “$25,000 - $99,999”, “Less than $24,999” and “Other”. “Other” refers to the answers of “Don’t know” and “Refused”.</p>
+<p>Almost half of the respondents have a year’s income between $25,000 and $99,999 and the proportions of residents with less than $24,999 income and those with more than $100,000 income are roughly equal.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-13-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Then we plot a stacked bar chart to compare the income composition between different transportation. The most obvious differences include 1) the residents whose income higher than $100,000 prefer bicycling and car more than other transportation modes and the proportions of these two choices are roughly equal, 2) compared with other transportation, the residents choosing walking and taking bus or subway are composed by more people with lower than $24,999 income. Also, the respondents whose income are between $25,000 and $99,999 take a large proportion in those who prefer train and rail.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The common advantage of walking, taking bus and taking subway that people think should be their inexpensiveness and convenience, which can be verified by the following plot. According to this, the fact that people whose year’s income are below $24,999 prefer walking, taking bus and subway can be understood.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Now let’s turn back to the graph “Income Composition” and think about train and rail. There seems some difference between the proportion of people having different income. But actually we don’t think it’s caused by the difference between people’s income directly. We assume that it’s due to the lack of subway in the region where these residents live. Because when we are asked to choose a transportation, if subway and train are available at the same time, most of us would choose subway due to its fast speed and inexpensiveness.</p>
+<p>Let’s verify this guess by plotting a bar chart of the borough distribution of the residents who prefer train and rail, and compare it with the map of New York City subway system. We also plot the borough distribution of all the residents to determine whether or not the pattern we find is caused by the ubanlanced sampling proportion of different borough.</p>
+<p>The bar chart shows that almost 40% respondents that choosing train and rail live in Queens, higher than the sampling proportion. So this can be treated as a significant pattern. We can see from the New York City subway system map that Queens almost has no subway system, indicating that the residents living there have limited public transportation choices and that what we suspected has been verified.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-16-1.png" width="672" style="display: block; margin: auto;" /></p>
+<div class="figure">
+<img src="image/subway_map.png" alt="New York City subway system map (Source: https://new.mta.info/sites/default/files/2019-10/subway_map_app_web_Oct_2019.pdf)" />
+<p class="caption">New York City subway system map (Source: <a href="https://new.mta.info/sites/default/files/2019-10/subway_map_app_web_Oct_2019.pdf" class="uri">https://new.mta.info/sites/default/files/2019-10/subway_map_app_web_Oct_2019.pdf</a>)</p>
+</div>
+</div>
+<div id="how-does-age-affect-residents-choices-of-transportation" class="section level2">
+<h2><span class="header-section-number">5.3</span> How does age affect residents’ choices of transportation?</h2>
+<p>We are concerned about the choices of middle-aged residents and old residents, so we divide the respondents into two groups, below 60 years old and above 60 years old. There are 80% middle-aged respondents and almost 20% old residents.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-17-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The result is consistent with what we thought. Middle-aged residents take a relative huge proportion in people who choose bicycle, while more old residents prefer taking car to get around the city due to health or some other issues.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-18-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="how-do-peoples-residence-and-living-situation-affect-their-choices-of-transportation" class="section level2">
+<h2><span class="header-section-number">5.4</span> How do people’s residence and living situation affect their choices of transportation?</h2>
+<p>Apart from basic socioeconomic factors, the situation of living should also affect their preferences for traveling and types of transportation. We select variables concerning whether the respondents own their houses or not, the cumulative years of living in New York City and the number of children as index of their general living conditions and explore whether owning house, raising children and living longer years in NYC will have an impact on their choices.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-21-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>For residence types, we divide all respondents into two groups, those who own their house and those who don’t. About 2,200 respondents in the sample rent their house taking up about 60% of all, and 1365 respondents own their house. From the stacked bar chart, it’s clear that tenants take up the least proportion in the group of traveling by car. Compared to driving their own vehicles, they tend to choose public transportation systems such as bus and subway.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-22-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Similar conclusion can be drawn by analyzing the years of living in New York City variable. It’s rational to purchase a car after living in New York for five years. So the “living in NYC more than 5 years” subgroup takes up most of the proportion of car riders, when the new-arriving New Yorkers show a relatively higher tendency to take taxi and Uber as well as make use of the public transportation as long as they get familiar with them.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-23-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-24-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>We expect children to be a distinguishing feature as raising child would definitely change almost every aspect of an adult’s life with traveling included. In all ways of transportation, people with two or more children take up highest proportion in the car category. It’s reasonble because one can imagine the trouble of taking subway with two kids but it’s also possible that the result comes from the reciprocal effects of other variables. For example, those who live longer and own their house are also likely to buy a car and have more children in New York City. Young people will have significant disadvantages in terms of their wealth accumulation and years of living in the city. Further understanding of the phenomenon requires a deeper analysis to control the effect of other variables.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="shut-in-or-go-out-the-effects-of-peoples-lifestyle-on-their-preferences-of-transportation" class="section level2">
+<h2><span class="header-section-number">5.5</span> Shut in or Go out: the Effects of People’s Lifestyle on their Preferences of Transportation</h2>
+<p>The variables describing the frequency people receive delivery in the survey allow us to view their choice of traveling from another intriguing angle. As online shopping, takeout food delivery and ride sharing service place an increasing effect on our daily life, people gradually accept them as a new choice of transportation. Based on intuitive understanding of the phenomenon, we assume that people’s attitude and frequency of receiving takeout will also be associated with certain preferences of transportation.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-27-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>First we use stacked bar chart to explore the relationship between frequency of ordering takeout food and choice of transportation. The preliminary result is quite convincing as it’s consistent with our experience and intuition. For the convenience of comparison, we aggregate the level of receiving delivery “daily”, “most days” and “several times a week” into one group “a few times a week or more” and combine “a few times a year”,“never” into “seldom or never”.</p>
+<p>It can be concluded from the bar chart that people who seldom or never receive takeout food take up the majority of people who choose walking as a way to travel around the city, when people order food delivery service a few times a week or more show a least relative tendency to walk. Similar situation happens in the “For-hire vehicle” group. Those who seldom or never receive food delivery has the lowest relative proportion in “For-hire vehicle” group when those who order a few times a week or more taking up the most compared to other transportation.</p>
+<p>Here a “laziness effect” can be observed. Naturally people who are reluctant to go out will also hold negative attitude towards walking. And the group who love order Uber and take taxi are also likely to choose takeout service as an alternative for going to the restaurant and have dinner.</p>
+<p>Apart from the laziness element, it’s possible that the level of acceptance to new service will affect their choice of transportation and food delivery service. Respondents who use Uber are also likely to use a food delivery service app. Some people may reject both and walk to a nearby restaurant to eat.</p>
+<p>We can further apply regression analysis to get the net effect of different features. Before that, a mosaic plot will help us understanding the relationship of the two variables.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Now we can observed the association more clearly. People with a higher tendency to use for-hired vehicles are also willing to choose takeout dilivery service. That’s probably a reason why Uber also develops Uber Eats as the customers are somehow overlapped.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-29-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="how-do-locations-affect-choices-of-transportation" class="section level2">
+<h2><span class="header-section-number">5.6</span> How do Locations Affect Choices of Transportation?</h2>
+<p>Transportation is naturally a topic highly related to space and geography elements. In this part, we extract the transportation of highest proportion in people’s choices for each Zipcode and derive the “Favourite Transportation by Zipcode” variable.</p>
+<p>From the choropleth, we can see that a majority of blocks in New York City choose Subway as their favourite way of transportation, which include most areas of Queens and Brooklyn, Manhattan Uptown and the South Bronx. From the New York City subway system map we can see these are also the areas where subway lines are constructed in high density.</p>
+<p>As there are not so many subway lines in Staten Island, people use car as a major way of traveling, which is also the case for some areas in Bronx and Long Island. As they locate far from the center of NYC, car is needed for commute and mobility.</p>
+<p>An interesting observation is that people living in downtown of Manhattan and some parts of Brooklyn choose walking as their favourite way of transportation. It may be related to the density of commercial activities and infrastructure so that people do not have to travel long distance to meet their daily needs. As they live in the center of the city, it’s unnecessary to take subway or drive a car to their workplaces.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>As a result of difference in infrastructure construction and urban area function, people in different boroughs and locations of the city form different preferences for transportations.</p>
+<p>From an environmental perspective, we draw the choropleth for the proportions of people choosing a low-carbon way of traveling in each Zipcode area. In our definition, those who take subway and other public transportation service as well as people who choose walking and riding bicycle will all be considered as the environment-friendly group in term of traveling.</p>
+<p>The result is consistent with what we find in the last graph. People living in Manhattan and parts of Brooklyn have the highest proportion in environmental friendliness, as a result of their preferences for subway. Staten Island gets a relatively low score since there are few subway lines so car becomes the first choice of traveling.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-34-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="why-do-residents-use-ride-hailing-services-in-recent-years" class="section level2">
+<h2><span class="header-section-number">5.7</span> Why do residents use ride hailing services in recent years?</h2>
+<p>In this section, we touch upon a specific topic: why people start to use ride hailing services. Therefore, we will mostly focus on a subset of participants who has used this kind of services before, according to the survey results. This section will be divided into three parts. First, we will get a preliminary understanding of the preferences of ride hailing services at NYC by plotting basic descriptive statistics of survey questions correlated with this service. Next, we will facet the histogram of the usage frequency by several demographic features, trying to figure out underlying correlations between them. Finally, we will compare the ride hailing services with several other traditional services and make inferences of what are the most important reasons that drive people to use ride hailing services at NYC.</p>
+<div id="summary-statistics-of-ride-hailing-services" class="section level3">
+<h3><span class="header-section-number">5.7.1</span> Summary statistics of ride hailing services</h3>
+<p>In this section, we first plot several summary statistics of the usage of rail hailing services at NYC, including 1) service coverage among people, i.e., how many people have used this service at least once; 2) the most popular ride hailing service providers and 3) major travelling purposes of using rail hailing services.</p>
+<p>The frequency statistics are mostly collected from the result of Q28b in the survey, while the service provider data and travelling purposes data come from results of Q28a and Q28c respectively. For clarity, we first classified the frequency to two groups, namely whether or not a participant has used the ride hailing service at least once before. A finer definition of frequency will be used in the next section. Note that as a participant may choose several service providers and several travel purposes, the total sum of percentage may exceed 100%. However, each bar will still reflects how many participants choose the corresponding statement. So we will continue using this method when dealing with multiple selected options in the following parts.</p>
+<p>The upper left plot shows that more than half of people have never used ride hailing services before. The upper right plot indicates that Uber and Lyft are most widely used services providers at NYC and all the other providers have quite limited share of the users. Also the size of user group of Uber is almost twice as large as that of Lyft.</p>
+<p>The plot in the bottom shows major purposes for which users request for a ride hailing service at NYC. Not surprisingly, social and personal errands make up of the majority part of ride hailing services, since ride hailing services are super convenient for door to door trips. It’s somehow surprising that some people also use ride hailing services to commute to or from work. Although we don’t have the exact number of trips of every specific purpose conducted by every participant in this dataset, we can still infer that for most people, ride hailing services provide another ideal way for temporary and short trips.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-40-1.png" width="672" style="display: block; margin: auto;" /></p>
+</div>
+<div id="factors-that-influence-frequency-of-using-ride-hailing-services" class="section level3">
+<h3><span class="header-section-number">5.7.2</span> Factors that influence frequency of using ride hailing services</h3>
+<p>In this section, we want to investigate whether the frequency of using ride hailing services are affected by the demographic features of the user, e.g., the region he / she lives, the income level and the age. For a specific feature, we will plot the conditional distribution of the frequency, given a specific value of that feature. The basic methodology here is comparing if two distributions look different under different conditions. If so, this feature may play an important role for explaining the frequency of using ride hailing services. Otherwise, its role may be vague and not significant. In this section, the frequency is divided to several groups with a different time range, e.g. several times a month or several times a year, which is also how the survey question Q28b defines frequency.</p>
+<ol style="list-style-type: decimal">
+<li><strong>Region v.s. Freq</strong></li>
+</ol>
+<p>The survey problem Q8 and Q9 ask for the region that the participant lives. Here we reduced all possible options to the granularity of boroughs at NYC, so there are five different regions in total. The reason why we are interested in the region feature is that different regions may have quite different transportation systems. For example, if the public transportation system is quite complete in one region, people may not use ride hailing services that often, due to the higher price of each trip. Based on this assumption, we can plot the distribution by faceting on the region.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-41-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>From the previous plot that we can notice that most people in each region tend to use ride hailing services a few times a month, instead of those living on Staten island. In general, people living on Staten island take ride hailing trips less often compared with residents in other boroughs, which may due to the fact that Staten island is more like an isolated region compared with the others. The Brooklyn, Manhattan and Queens boroughs show similar patterns, while residents in Manhattan take ride rail trips most frequently. Although the public transportation system is almost perfect at Manhattan, people still take ride hailing trips quite a lot, which somehow contradicts our initial assumption. Another explanation for this phenomenon would be, for a busier and more crowded region, the number of active drivers would also be larger. Therefore, this may shorten the average waiting time for every ride rail trip and make this service more convenient.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><strong>Income v.s Freq</strong></li>
+</ol>
+<p>Next, we want to understand how the frequency of taking ride hailing trips would be influenced by the income level, as the ride hailing services may cost a little more compared with traditional green or yellow taxi. The income information comes from the results of Q6 in the survey. Here we also group the income level to 5 levels, with a span of roughly $50,000 and discard those participants who refused to report their income level.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-42-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Except for the lowest income level and those who refused to disclose their income level, all the other groups show quite similar distributions. For the lowest income group, the frequency distribution is more left skewed compared with the others, which indicates that people in this group will use ride rail services less often. Therefore, generally speaking, the income level is not a significant feature that influences the frequency of taking ride hailing trips. From another aspect, it also reflects that the pricing rules for ride hailing services are reasonable, so the price itself won’t become a factor that hinder the growth of ride hailing services.</p>
+<ol start="3" style="list-style-type: decimal">
+<li><strong>Age v.s. Freq</strong></li>
+</ol>
+<p>We may also assume that ride hailing services are more appealing to younger generations who are more capable of accepting new things. Therefore, we also facet on age variable in this section. We first divide the ages of all grown-ups into 6 groups, with a span of roughly 10 years in each group. We also remove those participants who refused to report their ages in this survey for clarity. The age information comes from the results of Q2 in the survey.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-43-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>For people younger than 55 years old, the patterns are quite similar. The majority of users in these group take ride hailing trips a few times a month, and older people tend to take ride hailing trip less frequently, which can be observed as the increasing ratio of people with frequency smaller than once a month. For those who are retired, the ratio of “less than a few times in a year” is the largest compared with other groups. However, it’s surprising that for those great than 65 years old, over 30% of them still takes ride hailing trips a few times a month. So it may indicate that the newly born ride hailing services is quite user friendly for elder people.</p>
+<ol start="4" style="list-style-type: decimal">
+<li><strong>With / Without Car v.s Freq</strong></li>
+</ol>
+<p>Last, we want to check whether the access of a personal car will influence the choice of taking ride hailing services. Mostly, we will guess that those without access to a car would be more likely to use ride hailing services to travel around. The car access information comes from the results of Q24, and we reduce the results to two groups indicating whether a participant has access to a car.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-44-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>The results are quite interesting. For relatively high frequency of using ride hailing services, namely from several times a week to once a month, the ratios in the group of participants with no access to car are larger than the counterparts in the other group, indicating that those without a car will use ride hailing services more frequently. For relatively low frequencies, i.e., when the frequency is calculated in the range of years, corresponding ratios are larger in the group with car access. The general pattern of both distribution is still similar without a huge distinction. And this may come from the fact that those without cars will also use other transportation methods as a substitute and those with cars may also use ride hailing services when parking is hard.</p>
+</div>
+<div id="comparison-between-ride-hailing-services-and-other-transportation" class="section level3">
+<h3><span class="header-section-number">5.7.3</span> Comparison between ride-hailing services and other transportation</h3>
+<p>In this section, we focus on the internal reasons that a ride hailing service user relies on when making choices of transportation methods. We first find out what used to be the method of transportation prior to the existence of using ride hailing services. This is asked by Q28d-Q28h. By filtering out top options, we then compare the feelings and descriptions of these methods along with ride hailing services given by ride hailing service users, in order to find an explanation of why these transitions happen. Those descriptions are results from Q37, where the participants were asked to select appropriate descriptions for these transportation methods. Note that a participant may select more than one feature for each transportation tool.</p>
+<p><img src="citywide_mobility_survey_files/figure-html/unnamed-chunk-51-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Note that in the left plot, the top-3 methods prior to using ride hailing services are bus, subway and taxi. Therefore, in the right plot, we provided the descriptions of these methods along with ride hailing services. As shown in the plot, the top-3 descriptions of ride hailing services are convenient, comfortable and reliable. And the margins between ride hailing services and all the others are quite large for these three descriptions, so we can regard them as top reasons explaining why a user would prefer ride hailing services. Also note that the only disadvantage of ride hailing service is that it’s more expensive than bus and railway, but users still believe that taxis are more expensive then ride hailing service, which is somehow surprising. Since these plots are only based on the responses of participants who have used ride hailing services at least once, there may exist a bias for ride hailing services in the conclusion. However, it still reflects that users are quite satisfied with this new type of service and the user loyalty rate is high. Therefore, it’s reasonable to assume that the ride hailing services will still grow with all these advantages, and may even surpass traditional taxis in the future.</p>
+</div>
+<div id="conclusion" class="section level3">
+<h3><span class="header-section-number">5.7.4</span> Conclusion</h3>
+<p>From previous results in this section, we can conclude that there is still much space for the growth of ride hailing services at NYC, since as estimated from this survey, more than half of NYC residents have never used this service before. Also, different boroughs at NYC have different usage patterns of this service, and younger people seem to prefer this service than elder people. Therefore, a more personalized advertisement could be introduced in the future by taking the demographic features of a potential customer into consideration. Last but not least, ride hailing service has several advantages when compared with traditional transportation modes, except for a mild increase in price. Those features help increase customer loyalty and promote this service in the future.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="missing-value.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="interactive-component-a-dashboard-for-eda.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/skyetim/citywide_mobility_survey/edit/master/results.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
